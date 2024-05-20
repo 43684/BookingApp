@@ -74,6 +74,19 @@ struct AdminView: View {
                         }
                 }
             }
+            
+            Section("Appointments"){
+                ForEach(viewModel.appointments) { appointment in
+                    Text("\(appointment.day.dayOfMonth) \(appointment.day.month) \(appointment.time)")
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+                        }
+                }
+            }
         }
     }
 }

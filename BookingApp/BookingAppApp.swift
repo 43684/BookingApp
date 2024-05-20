@@ -16,7 +16,7 @@ struct BookingAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AdminView()
+            ContentView()
         }
     }
 }

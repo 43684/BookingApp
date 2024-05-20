@@ -16,6 +16,7 @@ class AdminViewModel: ObservableObject {
     
     init(){
         Task{try await fetchData()}
+        Task{try await fetchAppointment()}
     }
     
     @Published var appointments = [Appointment]()
@@ -30,6 +31,7 @@ class AdminViewModel: ObservableObject {
     
     @Published var services = [Service]()
     @Published var products = [Product]()
+    @Published var bookedAppointments = [Appointment]()
     
     
     func createMonthlyAppointmentsFromDate(){
@@ -88,6 +90,19 @@ class AdminViewModel: ObservableObject {
         products.append(contentsOf: fetchedProducts)
                 
     }
+    
+    @MainActor
+    func fetchAppointment() async throws {
+        
+        var fetchedAppointments = try await AppointmentService.fetchAppointments()
+        
+        appointments = []
+        
+        appointments.append(contentsOf: fetchedAppointments.filter({$0.booked}))
+                
+    }
+    
+    
     
     func deleteService(service: Service){
         ServicesService.shared.deleteService(service: service)
