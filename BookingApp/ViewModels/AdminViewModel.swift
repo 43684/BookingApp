@@ -47,6 +47,20 @@ class AdminViewModel: ObservableObject {
         }
     }
     
+    func createAppointmentFromDate(){
+        
+        let dayNumber = Int(date.formatted(.dateTime.day())) ?? 0
+        let month = date.extractDate(to: .month)
+        let monthValue = Int(date.extractDate(to: .monthValue)) ?? 0
+        let year = Int(date.extractDate(to: .year)) ?? 0
+        
+        let appointment1 = Appointment(booked: false, time: "Post Midday", year: year, day: Day(dayOfMonth: dayNumber, month: month, monthValue: monthValue))
+        let appointment2 = Appointment(booked: false, time: "After Midday", year: year, day: Day(dayOfMonth: dayNumber, month: month, monthValue: monthValue))
+        
+        AppointmentService.shared.createAppointments(appointment: appointment1)
+        AppointmentService.shared.createAppointments(appointment: appointment2)
+    }
+    
     func addNewService(){
         ServicesService.shared.createNewService(service: Service(name: serviceName, price: Int(servicePrice) ?? 0))
         serviceName = ""

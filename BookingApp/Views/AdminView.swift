@@ -13,11 +13,14 @@ struct AdminView: View {
         
     var body: some View {
         List {
-            Section{
+            Section("Generate appointments for selected date"){
                 DatePicker("Please enter a date", selection: $viewModel.date, displayedComponents: .date)
-                Button("Generate appointments for selected date") {
+                Button("Generate monthly appointments") {
                     viewModel.createMonthlyAppointmentsFromDate()
-                    print("done")
+                }
+                Button("Generate one appointments") {
+                    viewModel.createAppointmentFromDate()
+                    
                 }
             }
             
