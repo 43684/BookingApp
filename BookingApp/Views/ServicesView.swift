@@ -14,13 +14,13 @@ struct ServicesView: View {
     var body: some View {
         NavigationStack{
             List{
-                ForEach(0..<10, id: \.self){ i in
+                ForEach(viewModel.services){ service in
                     ZStack(alignment: .bottom) {
                         HStack{
-                            Text("\(i+1) \(Service.MOCK_SERVICE.name)")
+                            Text("\(service.name)")
                             Spacer()
                             VStack{
-                                Text("\(Service.MOCK_SERVICE.price)")
+                                Text("\(service.price) kr")
                                 Text("Price")
                             }
                             .font(.caption)
