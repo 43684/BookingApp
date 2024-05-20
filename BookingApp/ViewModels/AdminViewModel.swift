@@ -11,7 +11,7 @@ class AdminViewModel: ObservableObject {
     
    
     
-    let shared = AdminViewModel()
+    //let shared = AdminViewModel()
     
     init(){
         Task{try await fetchData()}
@@ -74,7 +74,7 @@ class AdminViewModel: ObservableObject {
     }
     
     
-    
+    @MainActor
     func fetchData() async throws {
         
         let fetchedServices = try await ServicesService.fetchServices()
