@@ -31,19 +31,6 @@ struct ProductsView: View {
                     
                 }
             }
-            .toolbar{
-                if viewModel.isAdminLoggedIn {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            print("Add item to firebase")
-                        } label: {
-                            Text("Add Product")
-                                .foregroundColor(.yellow)
-                        }
-                        
-                    }
-                }
-            }
         }
     }
 }

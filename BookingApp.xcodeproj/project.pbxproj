@@ -16,7 +16,6 @@
 		7CFE6F7F2BEE7378009E6678 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F7E2BEE7378009E6678 /* AuthService.swift */; };
 		7CFE6F812BEE740A009E6678 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F802BEE740A009E6678 /* ContentViewModel.swift */; };
 		7CFE6F832BEE75A5009E6678 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F822BEE75A5009E6678 /* ServicesView.swift */; };
-		7CFE6F852BEE77FA009E6678 /* NewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */; };
 		7CFE6F8A2BEE7AC6009E6678 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */; };
 		7CFE6F8D2BF0F8E0009E6678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CFE6F8C2BF0F8E0009E6678 /* GoogleService-Info.plist */; };
 		7CFE6F902BF0F984009E6678 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFE6F8F2BF0F984009E6678 /* FirebaseAuth */; };
@@ -51,7 +50,6 @@
 		7CFE6F7E2BEE7378009E6678 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7CFE6F802BEE740A009E6678 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		7CFE6F822BEE75A5009E6678 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
-		7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceView.swift; sourceTree = "<group>"; };
 		7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		7CFE6F8C2BF0F8E0009E6678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CFE6F992BF0FAEC009E6678 /* AdminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminService.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				7CFE6F7A2BEE727D009E6678 /* SignInView.swift */,
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
 				7CFE6FAA2BF125B3009E6678 /* ProductsView.swift */,
-				7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */,
 				7CFE6FB62BF37446009E6678 /* AdminView.swift */,
 			);
 			path = Views;
@@ -292,7 +289,6 @@
 				7CFE6FAF2BF268B3009E6678 /* AdminViewModel.swift in Sources */,
 				7CFE6F9A2BF0FAEC009E6678 /* AdminService.swift in Sources */,
 				7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */,
-				7CFE6F852BEE77FA009E6678 /* NewServiceView.swift in Sources */,
 				7CFE6F6D2BE4D4DD009E6678 /* BookingAppApp.swift in Sources */,
 				7CFE6F832BEE75A5009E6678 /* ServicesView.swift in Sources */,
 			);
@@ -353,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -410,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

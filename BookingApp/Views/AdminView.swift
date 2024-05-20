@@ -49,8 +49,6 @@ struct AdminView: View {
                 }
             }
         }
-        
-
     }
 }
 

@@ -31,20 +31,6 @@ struct ServicesView: View {
                             .font(.caption)
                             .offset(x: 5,y:5)
                     }
-                    
-                }
-            }
-            .toolbar{
-                if viewModel.isAdminLoggedIn {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            print("Add item to firebase")
-                        } label: {
-                            Text("Add Service")
-                                .foregroundColor(.yellow)
-                        }
-                        
-                    }
                 }
             }
         }
