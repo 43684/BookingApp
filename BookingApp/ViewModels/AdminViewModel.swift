@@ -66,12 +66,14 @@ class AdminViewModel: ObservableObject {
         ServicesService.shared.createNewService(service: Service(name: serviceName, price: Int(servicePrice) ?? 0))
         serviceName = ""
         servicePrice = ""
+        Task{try await fetchData()}
     }
     
     func addNewProduct(){
         ProductService.shared.createNewProduct(product: Product(name: productName, price: Int(productPrice) ?? 0))
         productName = ""
         productPrice = ""
+        Task{try await fetchData()}
     }
     
     
@@ -80,8 +82,9 @@ class AdminViewModel: ObservableObject {
         
         let fetchedServices = try await ServicesService.fetchServices()
         let fetchedProducts = try await ProductService.fetchProducts()
-        
+        services = []
         services.append(contentsOf: fetchedServices)
+        products = []
         products.append(contentsOf: fetchedProducts)
                 
     }
