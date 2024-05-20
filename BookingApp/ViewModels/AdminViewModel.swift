@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class AdminViewModel: ObservableObject {
     
@@ -83,6 +84,20 @@ class AdminViewModel: ObservableObject {
         services.append(contentsOf: fetchedServices)
         products.append(contentsOf: fetchedProducts)
                 
+    }
+    
+    func deleteService(service: Service){
+        ServicesService.shared.deleteService(service: service)
+        if let index = self.services.firstIndex(of: service) {
+            self.services.remove(at: index)
+        }
+    }
+    
+    func deleteProduct(product: Product){
+        ProductService.shared.deleteProduct(product: product)
+        if let index = self.products.firstIndex(of: product) {
+            self.products.remove(at: index)
+        }
     }
 }
 

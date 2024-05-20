@@ -24,4 +24,8 @@ class ProductService {
         guard let appointmentData = try? Firestore.Encoder().encode(product) else {return}
         reference.setData(appointmentData)
     }
+    
+    func deleteProduct(product:Product){
+        Firestore.firestore().collection("products").document(product.id).delete()
+    }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct AdminView: View {
     
     @ObservedObject var viewModel = AdminViewModel()
-        
+    
     var body: some View {
         List {
             Section("Generate appointments for selected date"){
@@ -35,7 +35,20 @@ struct AdminView: View {
                     viewModel.addNewService()
                 }
             }
-      
+            
+            Section("Services"){
+                ForEach(viewModel.services) { service in
+                    Text(service.name + " \(service.price)")
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                viewModel.deleteService(service: service)
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+                        }
+                }
+            }
+            
             
             Section("Add new product"){
                 TextField(text: $viewModel.productName) {
@@ -46,6 +59,19 @@ struct AdminView: View {
                 }
                 Button("Add Product to database") {
                     viewModel.addNewProduct()
+                }
+            }
+            
+            Section("Products"){
+                ForEach(viewModel.products) { product in
+                    Text(product.name + " \(product.price)")
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                viewModel.deleteProduct(product: product)
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+                        }
                 }
             }
         }
