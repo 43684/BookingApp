@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAMo3Yxo-ur0NnYe5qujMYlE1IQhpdyy3A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>172287137072</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>programet.e.gentit.BookingApp</string>
+	<key>PROJECT_ID</key>
+	<string>bookingapp-fbadd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bookingapp-fbadd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:172287137072:ios:d6d317172c76c354c6e4f5</string>
+</dict>
+</plist>

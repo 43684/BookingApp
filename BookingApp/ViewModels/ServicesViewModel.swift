@@ -1,0 +1,33 @@
+//
+//  ServicesViewModel.swift
+//  BookingApp
+//
+//  Created by Gentjan Manuka on 2024-05-12.
+//
+
+import Foundation
+import Combine
+
+class ServicesViewModel: ObservableObject {
+    
+    @Published var services = [Service]()
+    @Published var isAdminLoggedIn = false
+    
+    let service: ServicesService
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        self.service = ServicesService()
+       // Task{try await service.fetchServices()}
+        setupSubscibers()
+    }
+    
+    private func setupSubscibers(){
+        AuthService.shared.$isAdminLoggedIn.sink { [weak self] adminSessionFromAuthService in
+            self?.isAdminLoggedIn = adminSessionFromAuthService
+        }.store(in: &cancellables)
+    }
+    
+    
+}
