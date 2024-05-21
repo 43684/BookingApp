@@ -37,6 +37,8 @@
 		7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB12BF2694E009E6678 /* DateExtention.swift */; };
 		7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */; };
 		7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB62BF37446009E6678 /* AdminView.swift */; };
+		F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */; };
+		F15912982BFC1274006BF780 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15912972BFC1274006BF780 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,7 @@
 		7CFE6FB12BF2694E009E6678 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		7CFE6FB62BF37446009E6678 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		F15912972BFC1274006BF780 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */,
 				7CFE6F922BF0F984009E6678 /* FirebaseDatabase in Frameworks */,
 				7CFE6F902BF0F984009E6678 /* FirebaseAuth in Frameworks */,
 				7CFE6F942BF0F984009E6678 /* FirebaseFirestore in Frameworks */,
@@ -166,6 +170,7 @@
 			children = (
 				7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */,
 				7CFE6FB12BF2694E009E6678 /* DateExtention.swift */,
+				F15912972BFC1274006BF780 /* UIView.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				7CFE6F932BF0F984009E6678 /* FirebaseFirestore */,
 				7CFE6F952BF0F984009E6678 /* FirebaseFirestoreSwift */,
 				7CFE6F972BF0F984009E6678 /* FirebaseStorage */,
+				F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */,
 			);
 			productName = BookingApp;
 			productReference = 7CFE6F692BE4D4DD009E6678 /* BookingApp.app */;
@@ -241,6 +247,7 @@
 			mainGroup = 7CFE6F602BE4D4DD009E6678;
 			packageReferences = (
 				7CFE6F8E2BF0F984009E6678 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 7CFE6F6A2BE4D4DD009E6678 /* Products */;
 			projectDirPath = "";
@@ -284,6 +291,7 @@
 				7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */,
 				7CFE6F7B2BEE727D009E6678 /* SignInView.swift in Sources */,
 				7CFE6FAD2BF125CD009E6678 /* ProductsViewModel.swift in Sources */,
+				F15912982BFC1274006BF780 /* UIView.swift in Sources */,
 				7CFE6FA92BF11698009E6678 /* ServicesViewModel.swift in Sources */,
 				7CFE6FA72BF112FE009E6678 /* Appointment.swift in Sources */,
 				7CFE6FAF2BF268B3009E6678 /* AdminViewModel.swift in Sources */,
@@ -508,6 +516,14 @@
 				minimumVersion = 10.25.0;
 			};
 		};
+		F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -535,6 +551,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CFE6F8E2BF0F984009E6678 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

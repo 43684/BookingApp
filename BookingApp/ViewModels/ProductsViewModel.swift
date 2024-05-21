@@ -7,27 +7,29 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class ProductsViewModel: ObservableObject {
-    
     @Published var products = [Product]()
-    @Published var isAdminLoggedIn = false
-    
-    let service: ProductService
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.service = ProductService()
-      //  Task{try await service.fetchProducts()}
-        setupSubscibers()
+        fetchProducts()
     }
     
-    private func setupSubscibers(){
-        AuthService.shared.$isAdminLoggedIn.sink { [weak self] adminSessionFromAuthService in
-            self?.isAdminLoggedIn = adminSessionFromAuthService
-        }.store(in: &cancellables)
+    func fetchProducts() {
+        ProductService.shared.fetchProducts { [weak self] result in
+            switch result {
+            case .success(let products):
+                DispatchQueue.main.async {
+                    self?.products = products
+                }
+            case .failure(let error):
+                print("Error fetching products: \(error)")
+            }
+        }
     }
-    
-    
 }
+
+
