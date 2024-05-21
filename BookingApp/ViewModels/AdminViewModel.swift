@@ -33,6 +33,10 @@ class AdminViewModel: ObservableObject {
     @Published var products = [Product]()
     @Published var bookedAppointments = [Appointment]()
     
+    @Published var expandServiceContainer = false
+    @Published var expandProductContainer = false
+    @Published var expandAppointmentContainer = false
+    
     
     func createMonthlyAppointmentsFromDate(){
         
@@ -95,10 +99,17 @@ class AdminViewModel: ObservableObject {
     func fetchAppointment() async throws {
         
         var fetchedAppointments = try await AppointmentService.fetchAppointments()
-        
+            .filter({$0.booked})
+            .filter({($0.year >= Int(Date.now.extractDate(to: .year))!)})
+            .filter({($0.day.monthValue >= Int(Date.now.extractDate(to: .monthValue))!)})
+            .filter({($0.day.dayOfMonth >= Int(Date.now.extractDate(to: .day))!)})
+            .sorted(by: {$0.day.monthValue <= $1.day.monthValue})
+            .sorted { $0.time < $1.time }
+            .sorted(by: {$0.day.dayOfMonth <= $1.day.dayOfMonth})
+            
         appointments = []
         
-        appointments.append(contentsOf: fetchedAppointments.filter({$0.booked}))
+        appointments.append(contentsOf: fetchedAppointments)
                 
     }
     
