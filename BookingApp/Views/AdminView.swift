@@ -88,7 +88,9 @@ struct AdminView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
                         }
-                        Text(product.name + " \(product.price)")
+                        Spacer()
+                        Text(product.name + " \(product.price) kr")
+                        Spacer()
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                         Button(role: .destructive) {
