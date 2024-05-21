@@ -10,14 +10,12 @@ import Firebase
 
 class EmailVerificationViewModel: ObservableObject {
     
-    @Published var name: String?
-    @Published var mail: String?
-    @Published var pass: String = "pass"
     
     func createTemporaryUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
                 self.sendEmailVerification(user: user)
+                
             }
             if let error = error {
                 print("Could not create user \(error)")
@@ -33,6 +31,11 @@ class EmailVerificationViewModel: ObservableObject {
                 return
             }
         }
+    }
+    
+    func isEmailVerified() -> Bool {
+        let user = Auth.auth().currentUser
+        return user!.isEmailVerified
     }
     
     func deleteUser() {
