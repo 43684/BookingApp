@@ -22,7 +22,7 @@ struct AdminView: View {
                     Text("\(appointment.day.dayOfMonth) \(appointment.day.month) \(appointment.time)")
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button(role: .destructive) {
-                                
+                                viewModel.cancelAppointment(appointment: appointment)
                             } label: {
                                 Label("Delete", systemImage: "trash.fill")
                             }

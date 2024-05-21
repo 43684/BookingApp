@@ -128,6 +128,13 @@ class AdminViewModel: ObservableObject {
             self.products.remove(at: index)
         }
     }
+    
+    func cancelAppointment(appointment: Appointment){
+        AppointmentService.shared.cancelAppointment(appointment: appointment)
+        if let index = self.appointments.firstIndex(of: appointment) {
+            self.appointments.remove(at: index)
+        }
+    }
 }
 
 
