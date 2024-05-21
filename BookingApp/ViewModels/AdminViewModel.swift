@@ -94,7 +94,7 @@ class AdminViewModel: ObservableObject {
     @MainActor
     func fetchAppointment() async throws {
         
-        var fetchedAppointments = try await AppointmentService.fetchAppointments()
+        let fetchedAppointments = try await AppointmentService.fetchAppointments()
         
         appointments = []
         

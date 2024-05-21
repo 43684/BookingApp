@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65BB0DDE2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */; };
+		65BB0DE02BFCBB8300527F81 /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */; };
 		7CFE6F6D2BE4D4DD009E6678 /* BookingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */; };
 		7CFE6F6F2BE4D4DD009E6678 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */; };
 		7CFE6F712BE4D4E4009E6678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFE6F702BE4D4E4009E6678 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTestViewEmailVerification.swift; sourceTree = "<group>"; };
+		65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewModel.swift; sourceTree = "<group>"; };
 		7CFE6F692BE4D4DD009E6678 /* BookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingAppApp.swift; sourceTree = "<group>"; };
 		7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				7CFE6F7C2BEE72C5009E6678 /* SignInViewModel.swift */,
 				7CFE6FA82BF11698009E6678 /* ServicesViewModel.swift */,
 				7CFE6FAE2BF268B3009E6678 /* AdminViewModel.swift */,
+				65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
 				7CFE6FAA2BF125B3009E6678 /* ProductsView.swift */,
 				7CFE6FB62BF37446009E6678 /* AdminView.swift */,
+				65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,8 +279,10 @@
 				7CFE6FA32BF112D9009E6678 /* Service.swift in Sources */,
 				7CFE6FA52BF112E1009E6678 /* Product.swift in Sources */,
 				7CFE6F8A2BEE7AC6009E6678 /* StringExtention.swift in Sources */,
+				65BB0DE02BFCBB8300527F81 /* EmailVerificationViewModel.swift in Sources */,
 				7CFE6F6F2BE4D4DD009E6678 /* ContentView.swift in Sources */,
 				7CFE6F9C2BF103D9009E6678 /* ServicesService.swift in Sources */,
+				65BB0DDE2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift in Sources */,
 				7CFE6F812BEE740A009E6678 /* ContentViewModel.swift in Sources */,
 				7CFE6F9E2BF10438009E6678 /* ProductService.swift in Sources */,
 				7CFE6FAB2BF125B3009E6678 /* ProductsView.swift in Sources */,
