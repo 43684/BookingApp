@@ -10,16 +10,20 @@ import SwiftUI
 
 struct CustomCalendarView: View {
     
+    var viewModel = CalenderViewModel()
     @State var date = Date.now
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating:GridItem(.flexible()),count: 7)
     let size : CGFloat = 320
     
+    /**
+     */
     
     
     
     
     @State var days: [Date] = []
+    @State private var showingAlert = false
     
     
     var body: some View {
@@ -40,7 +44,11 @@ struct CustomCalendarView: View {
                     ForEach(days, id: \.self) { day in
                         Button {
                             print("Date selected \(day)")
-                        } label: {
+                         //   viewModel.showAvailableTimes()
+                            self.showingAlert = true
+                            print(showingAlert)
+                        }
+                    label: {
                             Text(day.formatted(.dateTime.day()))
                                 .fontWeight(.black)
                                 .frame(maxWidth:.infinity ,minHeight: 40)
@@ -54,7 +62,11 @@ struct CustomCalendarView: View {
                                 }
                             
                         }
-                        .disabled(Date.now.startOfDay > day.startOfDay)
+                    .alert(isPresented: $showingAlert) {
+                                  Alert(title: Text("Alert"), message: Text("This is a dialog"), dismissButton: .default(Text("OK")))
+                              }
+                          
+                    .disabled(Date.now.startOfDay > day.startOfDay)
                         
                     }
                 }
@@ -85,8 +97,6 @@ struct CustomCalendarView: View {
         
     }
 }
-
-
 
 #Preview {
     CustomCalendarView()
