@@ -12,20 +12,17 @@ struct DummyTestViewEmailVerification: View {
     @State private var email: String = ""
     @State private var nextView: Bool = false
     
+    @ObservedObject var viewModel = EmailVerificationViewModel()
+    
     var body: some View {
         VStack {
-            TextField("Name", text: $name)
-                .frame(width: 250, height: 40)
-                .border(.gray, width: 1)
-                .padding()
-            
-
             TextField("Email", text: $email)
                 .frame(width: 250, height: 40)
                 .border(.gray, width: 1)
                 .padding()
 
             Button(action: {
+                viewModel.createTemporaryUser(email: email, password: "temporary")
                 nextView = true
             }) {
                 Text("Go to verification")
