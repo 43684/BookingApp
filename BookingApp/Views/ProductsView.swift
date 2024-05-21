@@ -43,10 +43,10 @@ struct ProductsView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 50, height: 50)
                     }
-                    
+                    Spacer()
                     VStack(alignment: .leading) {
                         Text(product.name)
-                        Text("\(product.price) $")
+                        Text("\(product.price) kr")
                             .font(.caption)
                     }
                     Spacer()
