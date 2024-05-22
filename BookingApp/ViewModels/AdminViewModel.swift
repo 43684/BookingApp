@@ -26,6 +26,12 @@ class AdminViewModel: ObservableObject {
     
     @Published var bookedAppointments = [Appointment]()
     
+
+    @Published var expandServiceContainer = false
+    @Published var expandProductContainer = false
+    @Published var expandAppointmentContainer = false
+    
+
     init() {
         Task { try await fetchData() }
         Task { try await fetchAppointment() }
@@ -103,8 +109,20 @@ class AdminViewModel: ObservableObject {
     @MainActor
     func fetchAppointment() async throws {
         var fetchedAppointments = try await AppointmentService.fetchAppointments()
+
+            .filter({$0.booked})
+            .filter({($0.year >= Int(Date.now.extractDate(to: .year))!)})
+            .filter({($0.day.monthValue >= Int(Date.now.extractDate(to: .monthValue))!)})
+            .filter({($0.day.dayOfMonth >= Int(Date.now.extractDate(to: .day))!)})
+            .sorted(by: {$0.day.monthValue <= $1.day.monthValue})
+            .sorted { $0.time < $1.time }
+            .sorted(by: {$0.day.dayOfMonth <= $1.day.dayOfMonth})
+            
         appointments = []
-        appointments.append(contentsOf: fetchedAppointments.filter({ $0.booked }))
+        
+        appointments.append(contentsOf: fetchedAppointments)
+                
+
     }
     
     func deleteService(service: Service) {
@@ -118,6 +136,13 @@ class AdminViewModel: ObservableObject {
         ProductService.shared.deleteProduct(product: product)
         if let index = self.products.firstIndex(of: product) {
             self.products.remove(at: index)
+        }
+    }
+    
+    func cancelAppointment(appointment: Appointment){
+        AppointmentService.shared.cancelAppointment(appointment: appointment)
+        if let index = self.appointments.firstIndex(of: appointment) {
+            self.appointments.remove(at: index)
         }
     }
 }
