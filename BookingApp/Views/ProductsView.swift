@@ -55,7 +55,7 @@ struct ProductsView: View {
             }
             .navigationTitle("Products")
             .onAppear {
-                viewModel.fetchProducts()
+               // viewModel.fetchProducts()
             }
         }
     }

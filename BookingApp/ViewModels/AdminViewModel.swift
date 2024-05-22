@@ -20,6 +20,7 @@ class AdminViewModel: ObservableObject {
     @Published var productName = ""
     @Published var productPrice = ""
     @Published var selectedImage: UIImage?
+    @Published var isImagePickerPresented = false
     
     @Published var services = [Service]()
     @Published var products = [Product]()
@@ -73,46 +74,34 @@ class AdminViewModel: ObservableObject {
     }
     
     func addNewProduct(imageData: Data) {
-        print("Creating new product with name: \(productName) and price: \(productPrice)")
-        let newProduct = Product(name: productName, price: Int(productPrice) ?? 0)
-        ProductService.shared.createNewProduct(product: newProduct, imageData: imageData)
+        
+        ProductService.shared.createNewProduct(product: Product(name: productName, price: Int(productPrice) ?? 0), imageData: imageData)
         productName = ""
         productPrice = ""
         selectedImage = nil
-        Task {
-            do {
-                try await fetchData()
-                print("Successfully fetched data after adding product")
-            } catch {
-                print("Error fetching data: \(error)")
-            }
-        }
+        Task { try await fetchData() }
     }
     
     @MainActor
     func fetchData() async throws {
+        let fetchedProducts = try await ProductService.fetchProducts()
         let fetchedServices = try await ServicesService.fetchServices()
-        ProductService.shared.fetchProducts { [weak self] result in
-            switch result {
-            case .success(let products):
-                DispatchQueue.main.async {
-                    self?.products = products
-                }
-            case .failure(let error):
-                print("Error fetching products: \(error)")
-            }
-        }
+        
+        products = []
+        products.append(contentsOf: fetchedProducts)
         services = []
         services.append(contentsOf: fetchedServices)
     }
     
     @MainActor
     func fetchAppointment() async throws {
-        var fetchedAppointments = try await AppointmentService.fetchAppointments()
+        let fetchedAppointments = try await AppointmentService.fetchAppointments()
 
             .filter({$0.booked})
             .filter({($0.year >= Int(Date.now.extractDate(to: .year))!)})
             .filter({($0.day.monthValue >= Int(Date.now.extractDate(to: .monthValue))!)})
+        
+        // append the rest to the passed bookings
             .filter({($0.day.dayOfMonth >= Int(Date.now.extractDate(to: .day))!)})
             .sorted(by: {$0.day.monthValue <= $1.day.monthValue})
             .sorted { $0.time < $1.time }
