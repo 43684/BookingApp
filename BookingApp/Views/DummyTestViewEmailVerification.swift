@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct DummyTestViewEmailVerification: View {
-    @State private var name: String = ""
+    @State private var statusText: String?
     @State private var email: String = ""
-    @State private var password: String = "temporary"
-    @State private var showSheet: Bool = false
-    
+    @State private var password: String = "temporary1234"
+  
     @ObservedObject var viewModel = EmailVerificationViewModel()
     
     var body: some View {
@@ -24,7 +24,17 @@ struct DummyTestViewEmailVerification: View {
 
             Button(action: {
                 viewModel.createTemporaryUser(email: email, password: password)
-                showSheet = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    viewModel.logInUser(email, password) { loggedIn in
+                        if loggedIn {
+                            statusText = "CHECK MAIL FOR VERIFICATION"
+                            print("User logged in")
+                        } else {
+                            print("User login failed")
+                        }
+                    }
+                }
+
             }) {
                 Text("Go to verification")
                     .padding()
@@ -33,9 +43,28 @@ struct DummyTestViewEmailVerification: View {
                     .cornerRadius(8)
             }
             .padding()
-            .sheet(isPresented: $showSheet) {
-                DummyVerificationCompleteView(isSheetVisible: $showSheet, email: $email, password: $password)
+            
+            Text(statusText ?? "Status...")
+                .foregroundStyle(.blue)
+            
+            if viewModel.isMailVerified {
+                Text("Email is verified!")
+                    .foregroundStyle(.green)
+                
             }
+        }
+        .onAppear {
+            viewModel.startVerificationTimer()
+            
+        }
+        .onChange(of: viewModel.isMailVerified) {
+            if viewModel.isMailVerified == true {
+                viewModel.stopVerificationTimer()
+                viewModel.deleteUser()
+            }
+        }
+        .onDisappear {
+            viewModel.stopVerificationTimer()
         }
     }
 }
