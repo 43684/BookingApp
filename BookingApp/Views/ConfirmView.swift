@@ -23,61 +23,63 @@ struct ConfirmView: View {
                 VStack (alignment: .leading) {
                     HStack {
                         Text("Order details: ")
-                        
                         Text("35435")//Text($orderNumber)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
-                    
+                        .frame(minWidth: 300, alignment: .leading)
+                        
                     HStack {
                         Text(Product.MOCK_PRODUCT.name)
                         Text("1000 kr")
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
+                        .frame(minWidth: 300, alignment: .leading)
                     
                     HStack {
                         Text("Hair Removal: ") //Text("Product.MOCK_PRODUCT.name)
                         Text("1000 kr")//Text(Product.MOCK_PRODUCT.price)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
+                        .frame(minWidth: 300, alignment: .leading)
                     
                     Divider()
-                        .frame(maxWidth: 320)
+                        .frame(minHeight: 1)
+                        .overlay(Color(hex: "#131D54"))
                     
                     HStack {
                         Text("Total: ") //Text("Product.MOCK_PRODUCT.name)
                         Text("2000 kr")//Text(Product.MOCK_PRODUCT.price)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
+                        .frame(minWidth: 300, alignment: .leading)
                     
                     Divider()
-                        .frame(maxWidth: 320)
+                        .frame(minHeight: 1)
+                        .overlay(Color(hex: "#131D54"))
                     
                     HStack {
                         Text("Date: ")
                         Text("27 May 2024")//Text($orderDate)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
+                        .frame(minWidth: 300, alignment: .leading)
                     
                     HStack {
                         Text("Time: ")
-                        Text("10.00 am")//Text($orderDate)
+                        Text("10.00 am")//Text($orderTime)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
+                        .frame(minWidth: 300, alignment: .leading)
                     
                     HStack {
                         Text("Adress: \n")
-                        Text("Björkgatan 3A \n234 34, Stockholm")//Text($orderDate)
+                        Text("Björkgatan 3A \n234 34, Stockholm")//Text($Address)
                     }.padding(5)
-                        .frame(minWidth: 320, alignment: .leading)
-                    
+                        .frame(minWidth: 300, alignment: .leading)
                 }
                 .padding()
                 .background (Color(hex: "#D3BD9C"))
+                .foregroundColor(Color(hex: "#131D54"))
+                .bold()
                 .cornerRadius(20)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .frame(maxWidth: 350, maxHeight: .infinity, alignment: .center)
                 
                 //Button
-                HStack {
+                HStack (spacing: 50){
                     Button("Change Order"){
                     }.padding()
                         .background(
@@ -102,14 +104,14 @@ struct ConfirmView: View {
                     } label: {
                         Image(systemName: "envelope")
                             .foregroundColor(.black)
-                            .padding(15)
+                            .padding(12)
                             .background(
                                 LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(50)
                     }
                 }
                 
-            }.navigationTitle("Your Order")
+            }.navigationTitle("Confimr your booking")
              .background(Color.black)
              .scrollContentBackground(.hidden)
     }
