@@ -14,15 +14,10 @@ class ProductService {
     
     static let shared = ProductService()
     
-    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-        Firestore.firestore().collection("products").getDocuments { snapshot, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let snapshot = snapshot {
-                let products = snapshot.documents.compactMap { try? $0.data(as: Product.self) }
-                completion(.success(products))
-            }
-        }
+    static func fetchProducts() async throws -> [Product] {
+        let snapshot = try await Firestore.firestore().collection("products").getDocuments()
+        let services = snapshot.documents.compactMap({try? $0.data(as: Product.self)})
+        return services
     }
     
     func uploadImage(imageData: Data, completion: @escaping (Result<String, Error>) -> Void) {
