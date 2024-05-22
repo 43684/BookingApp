@@ -111,7 +111,7 @@ struct ConfirmView: View {
                     }
                 }
                 
-            }.navigationTitle("Confimr your booking")
+            }.navigationTitle("Confirm booking")
              .background(Color.black)
              .scrollContentBackground(.hidden)
     }
