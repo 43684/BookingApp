@@ -11,135 +11,110 @@ struct ConfirmView: View {
     
     @ObservedObject var viewModel = AdminViewModel()
     let orderDetails = "123456"
-    private var stringArray = ["Lemuel", "Mark", "Chris", "Chase", "Adam", "Rodrigo"]
     
     var body: some View {
         
         NavigationStack {
-            VStack {
-                Section {
-                    HStack {
-                        Text("Order details: ")
-                        Text("35435")//Text($orderNumber)
-                    }.foregroundStyle(.blue)
-                    HStack {
-                        Text(Product.MOCK_PRODUCT.name)
-                        Text("1000 kr")
-                    }
-                    HStack {
-                        Text("Hair Removal: ") //Text("Product.MOCK_PRODUCT.name)
-                        Text("1000 kr")//Text(Product.MOCK_PRODUCT.price)
-                    }
-                    
-                    Divider()
-                        .frame(maxWidth: 200)
-                    
-                    HStack {
-                        Text("Total: ") //Text("Product.MOCK_PRODUCT.name)
-                        Text("2000 kr")//Text(Product.MOCK_PRODUCT.price)
-                    }
-                }
+            //Order
+            VStack (alignment: .leading) {
+                HStack {
+                    Text("Order details: ")
+                    Text("35435")//Text($orderNumber)
+                }.padding(5)
+                 .frame(minWidth: 300, alignment: .leading)
+                
+                HStack {
+                    Text(Product.MOCK_PRODUCT.name)
+                    Text("1000 kr")
+                }.padding(5)
+                 .frame(minWidth: 300, alignment: .leading)
+                
+                HStack {
+                    Text("Hair Removal: ") //Text("Product.MOCK_PRODUCT.name)
+                     Text("1000 kr")//Text(Product.MOCK_PRODUCT.price)
+                }.padding(5)
+                    .frame(minWidth: 300, alignment: .leading)
+                
+                Divider()
+                    .frame(maxWidth: 300)
+                
+                HStack {
+                     Text("Total: ") //Text("Product.MOCK_PRODUCT.name)
+                     Text("2000 kr")//Text(Product.MOCK_PRODUCT.price)
+                }.padding(5)
+                    .frame(minWidth: 300, alignment: .leading)
             }
-            VStack {
-                    HStack {
-                        Text("Date: ")
-                        Text("27 May 2024")//Text($orderDate)
-                    }
-                    HStack {
-                        Text("Time: ")
-                        Text("10.00 am")//Text($orderDate)
-                    }
-                    HStack {
-                        Text("Adress: ")
-                        Text("Björkgatan 3A \n234 34, Stockholm")//Text($orderDate)
-                    }
+            .padding()
+            .background (Color(hex: "#D3BD9C"))
+            .cornerRadius(20)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            
+            
+            //Date
+            VStack (alignment: .leading) {
+                 HStack {
+                      Text("Date: ")
+                      Text("27 May 2024")//Text($orderDate)
+                 }.padding(5)
+                  .frame(minWidth: 300, alignment: .leading)
+                
+                 HStack {
+                      Text("Time: ")
+                      Text("10.00 am")//Text($orderDate)
+                 }.padding(10)
+                  .frame(minWidth: 300, alignment: .leading)
+                
+                 HStack {
+                      Text("Adress: ")
+                      Text("Björkgatan 3A \n234 34, Stockholm")//Text($orderDate)
+                 }.padding(10)
+                  .frame(minWidth: 300, alignment: .leading)
+                
+            }
+            .padding()
+            .background(Color(hex: "#D3BD9C"))
+            .cornerRadius(20)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                
+            
+            //Button
+            HStack {
+                Button("Change Order"){
+                }.padding()
+                 .background(
+                    LinearGradient(gradient: Gradient(colors: [Color(hex: "#F2F0F0"), Color(hex: "#8C8B8B")]), startPoint: .leading, endPoint: .trailing))
+                 .foregroundColor(Color(hex: "#131D54"))
+                 .cornerRadius(15)
+                 .bold()
+                
+                Button("Confirm Order"){
+                }.padding()
+                 .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                 .foregroundColor(Color(hex: "#131D54"))
+                 .cornerRadius(15)
+                 .bold()
             }
             
-        }
-        HStack {
-            Button("Change Order"){
+            //email
+            Button {
+            } label: {
+                Image(systemName: "envelope")
+                    .foregroundColor(.black)
+                    .padding(15)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                    .cornerRadius(50)
                 
-            }.buttonStyle(.bordered)
-                .padding()
-            Button("Confirm Order"){
-                
-            }.buttonStyle(.borderedProminent)
-        }
-        
-        Button {
-        } label: {
-            Image(systemName: "envelope")
-                .foregroundColor(.black)
-                .padding(15)
-                .foregroundColor(Color(hex: "#3EB489"))
-                .background(Color(hex: "#D3BD9C"))
-                .cornerRadius(50)
-            //.offset(x:100, y:5)
-        }
+            }
+        } //.navigationTitle("Your Order")
+        //.background {
+                   // Color.black
+                   // .ignoresSafeArea()
+       // }
     }
 }
-        
-        
-        /*
-         NavigationStack{
-         ZStack {
-         List{
-         Section("Your order") {
-         HStack {
-         Text("Order details: ")
-         Text("35435")//Text($orderNumber)
-         }.foregroundStyle(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-         HStack {
-         Text(Product.MOCK_PRODUCT.name)
-         Text("")
-         }
-         HStack {
-         Text("Hair Removal: ") //Text("Product.MOCK_PRODUCT.name)
-         Text("1000 kr")//Text(Product.MOCK_PRODUCT.price)
-         }
-         }
-         
-         Section("Time"){
-         HStack {
-         Text("Date: ")
-         Text("27 May 2024")//Text($orderDate)
-         }
-         HStack {
-         Text("Time: ")
-         Text("10.00 am")//Text($orderDate)
-         }
-         HStack {
-         Text("Adress: ")
-         Text("Björkgatan 3A \n234 34, Stockholm")//Text($orderDate)
-         }
-         }
-         }
-         }
-         .navigationTitle("Your Order")
-         
-         }.background(Color.black)
-         
-         HStack {
-         Button("Change Order"){
-         
-         }.buttonStyle(.bordered)
-         .padding()
-         Button("Confirm Order"){
-         
-         }.buttonStyle(.borderedProminent)
-         }
-         
-         Button {
-         } label: {
-         Image(systemName: "envelope")
-         .foregroundColor(.black)
-         .padding(15)
-         .foregroundColor(Color(hex: "#3EB489"))
-         .background(Color(hex: "#D3BD9C"))
-         .cornerRadius(50)
-         //.offset(x:100, y:5)
-         }
-         */
+       
 
 #Preview {
     
