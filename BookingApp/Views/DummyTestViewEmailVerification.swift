@@ -10,6 +10,7 @@ import SwiftUI
 struct DummyTestViewEmailVerification: View {
     @State private var name: String = ""
     @State private var email: String = ""
+    @State private var password: String = "temporary"
     @State private var showSheet: Bool = false
     
     @ObservedObject var viewModel = EmailVerificationViewModel()
@@ -22,7 +23,7 @@ struct DummyTestViewEmailVerification: View {
                 .padding()
 
             Button(action: {
-                viewModel.createTemporaryUser(email: email, password: "temporary")
+                viewModel.createTemporaryUser(email: email, password: password)
                 showSheet = true
             }) {
                 Text("Go to verification")
@@ -33,7 +34,7 @@ struct DummyTestViewEmailVerification: View {
             }
             .padding()
             .sheet(isPresented: $showSheet) {
-                DummyVerificationCompleteView(isSheetVisible: $showSheet)
+                DummyVerificationCompleteView(isSheetVisible: $showSheet, email: $email, password: $password)
             }
         }
     }

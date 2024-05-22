@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DummyVerificationCompleteView: View {
   @Binding var isSheetVisible: Bool
+  @Binding var email: String
+  @Binding var password: String
     
   @ObservedObject var viewModel = EmailVerificationViewModel()
 
@@ -17,11 +19,19 @@ struct DummyVerificationCompleteView: View {
         VStack {
             Text("Complete Verification.\nCheck email to verify, then click proceed")
                 .padding()
+                
 
             Button(action: {
-                if viewModel.isEmailVerified() {
-                    isSheetVisible = false
+                viewModel.isEmailVerified(email, password) { verified in
+                    if verified {
+                        print("Verified")
+                        isSheetVisible = false
+                        viewModel.deleteUser()
+                    } else {
+                        print("Not verified")
+                    }
                 }
+             
                
             }) {
                 Text("Proceed")
@@ -32,7 +42,17 @@ struct DummyVerificationCompleteView: View {
             }
             .padding(50)
             
+        }  .onAppear {
+  
         }
+    }
+}
+
+func isVerified(verified: Bool) -> Bool {
+    if verified {
+        return true
+    } else {
+        return false
     }
 }
 

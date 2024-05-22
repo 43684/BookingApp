@@ -33,13 +33,30 @@ class EmailVerificationViewModel: ObservableObject {
         }
     }
     
-    func isEmailVerified() -> Bool {
-        let user = Auth.auth().currentUser
-        return user!.isEmailVerified
+    func isEmailVerified( _ email: String, _ password: String, completion: @escaping (Bool) -> Void) {
+       let auth =  Auth.auth()
+            auth.signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("User login failed: \(error.localizedDescription)")
+                return
+            }
+                let user = auth.currentUser
+            
+                if user?.isEmailVerified == true {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+
+            print("User logged in: \(String(describing: authResult?.user.email))")
+
+        }
     }
+    
     
     func deleteUser() {
         guard let user = Auth.auth().currentUser else {return}
+        
         user.delete() { error in
             if let error = error {
                 print("Error when trying to delete user: \(error.localizedDescription)")
