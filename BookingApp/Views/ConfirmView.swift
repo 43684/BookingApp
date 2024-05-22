@@ -13,7 +13,7 @@ struct ConfirmView: View {
     let orderDetails = "123456"
     
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color(hex:"#D3BD9C"))]
     }
     
     var body: some View {
@@ -28,14 +28,14 @@ struct ConfirmView: View {
                         .frame(minWidth: 300, alignment: .leading)
                         
                     HStack {
-                        Text(Product.MOCK_PRODUCT.name)
-                        Text("1000 kr")
+                        Text("Hair Extension") //Text(Product.MOCK_SERVICE.name)
+                        Text("1000 kr") //Text(Product.MOCK_SERVICE.price)
                     }.padding(5)
                         .frame(minWidth: 300, alignment: .leading)
                     
                     HStack {
                         Text("Hair Removal: ") //Text("Product.MOCK_PRODUCT.name)
-                        Text("1000 kr")//Text(Product.MOCK_PRODUCT.price)
+                        Text("1000 kr") //Text(Product.MOCK_PRODUCT.price)
                     }.padding(5)
                         .frame(minWidth: 300, alignment: .leading)
                     
@@ -44,8 +44,8 @@ struct ConfirmView: View {
                         .overlay(Color(hex: "#131D54"))
                     
                     HStack {
-                        Text("Total: ") //Text("Product.MOCK_PRODUCT.name)
-                        Text("2000 kr")//Text(Product.MOCK_PRODUCT.price)
+                        Text("Total: ")
+                        Text("2000 kr") //Text($totalCost)
                     }.padding(5)
                         .frame(minWidth: 300, alignment: .leading)
                     
@@ -55,7 +55,7 @@ struct ConfirmView: View {
                     
                     HStack {
                         Text("Date: ")
-                        Text("27 May 2024")//Text($orderDate)
+                        Text("27 May 2024") //Text($orderDate)
                     }.padding(5)
                         .frame(minWidth: 300, alignment: .leading)
                     
@@ -79,7 +79,7 @@ struct ConfirmView: View {
                 .frame(maxWidth: 350, maxHeight: .infinity, alignment: .center)
                 
                 //Button
-                HStack (spacing: 50){
+                HStack (spacing: 40){
                     Button("Change Order"){
                     }.padding()
                         .background(
@@ -100,16 +100,19 @@ struct ConfirmView: View {
                 //email
                 HStack {
                     Spacer()
-                    Button {
-                    } label: {
-                        Image(systemName: "envelope")
-                            .foregroundColor(.black)
-                            .padding(12)
-                            .background(
-                                LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(50)
-                    }
-                }
+                    ZStack {
+                        Button {
+                        } label: {
+                            Image(systemName: "envelope")
+                                .foregroundColor(.black)
+                                .padding(12)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                                .clipShape(Circle())
+                        }
+                    }.frame(width: 60, height: 60)
+                        .offset(x: -10)
+                }.padding()
                 
             }.navigationTitle("Confirm booking")
              .background(Color.black)
