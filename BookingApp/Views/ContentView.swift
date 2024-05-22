@@ -38,11 +38,15 @@ struct ContentView: View {
             .toolbar{
                 if viewModel.isAdminLoggedIn {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
+                        /*Button {
                             AuthService.shared.signOut()
                         } label: {
                             Text("Sign out")
                                 .foregroundColor(.yellow)
+                        }*/
+                        NavigationLink(destination: AdminView()) {
+                            Image(systemName: "doc.badge.gearshape.fill")
+                                
                         }
                         
                     }

@@ -16,7 +16,6 @@
 		7CFE6F7F2BEE7378009E6678 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F7E2BEE7378009E6678 /* AuthService.swift */; };
 		7CFE6F812BEE740A009E6678 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F802BEE740A009E6678 /* ContentViewModel.swift */; };
 		7CFE6F832BEE75A5009E6678 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F822BEE75A5009E6678 /* ServicesView.swift */; };
-		7CFE6F852BEE77FA009E6678 /* NewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */; };
 		7CFE6F8A2BEE7AC6009E6678 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */; };
 		7CFE6F8D2BF0F8E0009E6678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CFE6F8C2BF0F8E0009E6678 /* GoogleService-Info.plist */; };
 		7CFE6F902BF0F984009E6678 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFE6F8F2BF0F984009E6678 /* FirebaseAuth */; };
@@ -38,6 +37,8 @@
 		7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB12BF2694E009E6678 /* DateExtention.swift */; };
 		7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */; };
 		7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB62BF37446009E6678 /* AdminView.swift */; };
+		F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */; };
+		F15912982BFC1274006BF780 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15912972BFC1274006BF780 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +52,6 @@
 		7CFE6F7E2BEE7378009E6678 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7CFE6F802BEE740A009E6678 /* ContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		7CFE6F822BEE75A5009E6678 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
-		7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServiceView.swift; sourceTree = "<group>"; };
 		7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		7CFE6F8C2BF0F8E0009E6678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CFE6F992BF0FAEC009E6678 /* AdminService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminService.swift; sourceTree = "<group>"; };
@@ -68,6 +68,7 @@
 		7CFE6FB12BF2694E009E6678 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		7CFE6FB62BF37446009E6678 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		F15912972BFC1274006BF780 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */,
 				7CFE6F922BF0F984009E6678 /* FirebaseDatabase in Frameworks */,
 				7CFE6F902BF0F984009E6678 /* FirebaseAuth in Frameworks */,
 				7CFE6F942BF0F984009E6678 /* FirebaseFirestore in Frameworks */,
@@ -146,7 +148,6 @@
 				7CFE6F7A2BEE727D009E6678 /* SignInView.swift */,
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
 				7CFE6FAA2BF125B3009E6678 /* ProductsView.swift */,
-				7CFE6F842BEE77FA009E6678 /* NewServiceView.swift */,
 				7CFE6FB62BF37446009E6678 /* AdminView.swift */,
 			);
 			path = Views;
@@ -169,6 +170,7 @@
 			children = (
 				7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */,
 				7CFE6FB12BF2694E009E6678 /* DateExtention.swift */,
+				F15912972BFC1274006BF780 /* UIView.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -213,6 +215,7 @@
 				7CFE6F932BF0F984009E6678 /* FirebaseFirestore */,
 				7CFE6F952BF0F984009E6678 /* FirebaseFirestoreSwift */,
 				7CFE6F972BF0F984009E6678 /* FirebaseStorage */,
+				F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */,
 			);
 			productName = BookingApp;
 			productReference = 7CFE6F692BE4D4DD009E6678 /* BookingApp.app */;
@@ -244,6 +247,7 @@
 			mainGroup = 7CFE6F602BE4D4DD009E6678;
 			packageReferences = (
 				7CFE6F8E2BF0F984009E6678 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 7CFE6F6A2BE4D4DD009E6678 /* Products */;
 			projectDirPath = "";
@@ -287,12 +291,12 @@
 				7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */,
 				7CFE6F7B2BEE727D009E6678 /* SignInView.swift in Sources */,
 				7CFE6FAD2BF125CD009E6678 /* ProductsViewModel.swift in Sources */,
+				F15912982BFC1274006BF780 /* UIView.swift in Sources */,
 				7CFE6FA92BF11698009E6678 /* ServicesViewModel.swift in Sources */,
 				7CFE6FA72BF112FE009E6678 /* Appointment.swift in Sources */,
 				7CFE6FAF2BF268B3009E6678 /* AdminViewModel.swift in Sources */,
 				7CFE6F9A2BF0FAEC009E6678 /* AdminService.swift in Sources */,
 				7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */,
-				7CFE6F852BEE77FA009E6678 /* NewServiceView.swift in Sources */,
 				7CFE6F6D2BE4D4DD009E6678 /* BookingAppApp.swift in Sources */,
 				7CFE6F832BEE75A5009E6678 /* ServicesView.swift in Sources */,
 			);
@@ -353,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -410,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -436,6 +440,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,6 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,6 +516,14 @@
 				minimumVersion = 10.25.0;
 			};
 		};
+		F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -537,6 +551,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CFE6F8E2BF0F984009E6678 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
