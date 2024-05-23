@@ -101,6 +101,7 @@ class AdminViewModel: ObservableObject {
             .filter({($0.year >= Int(Date.now.extractDate(to: .year))!)})
             .filter({($0.day.monthValue >= Int(Date.now.extractDate(to: .monthValue))!)})
         
+
         // append the rest to the passed bookings
             .filter({($0.day.dayOfMonth >= Int(Date.now.extractDate(to: .day))!)})
             .sorted(by: {$0.day.monthValue <= $1.day.monthValue})
