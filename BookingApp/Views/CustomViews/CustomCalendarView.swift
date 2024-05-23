@@ -15,22 +15,15 @@ struct CustomCalendarView: View {
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating:GridItem(.flexible()),count: 7)
     let size : CGFloat = 320
-    
-    /**
-     */
-    
-    
-    
-    
+ 
     @State var days: [Date] = []
     @State private var showingAlert = false
-    
-    
+    @State var service = AppointmentService()
+    @State var appointments : [Appointment] = []
+    @State private var selectedItem: Appointment?
     var body: some View {
         VStack(alignment:.center,spacing:-0) {
-            
             VStack {
-                
                 HStack() {
                     ForEach(daysOfWeek.indices, id: \.self) { index in
                         Text(daysOfWeek[index])
@@ -38,40 +31,46 @@ struct CustomCalendarView: View {
                             .frame(maxWidth:.infinity)
                     }
                 }
-                
                 LazyVGrid(columns: columns,spacing: 10) {
-                    
                     ForEach(days, id: \.self) { day in
                         Button {
-                            print("Date selected \(day)")
-                         //   viewModel.showAvailableTimes()
-                            self.showingAlert = true
-                            print(showingAlert)
+                            Task{
+                         do{
+                             appointments = try await fetchAppointments()
+                             print(appointments)
+                                showingAlert = true
+                         }catch{
+                             print("Fail to fetch appointments")
+                         }
+                     }
+                        //    print("Date selected \(day)")
+                          
                         }
                     label: {
                             Text(day.formatted(.dateTime.day()))
                                 .fontWeight(.black)
                                 .frame(maxWidth:.infinity ,minHeight: 40)
                                // .opacity(day < date.startOfMonth ? 0 : 1)
-                                
                                 .background {
                                     if Date.now.startOfDay == day.startOfDay{
                                         Circle()
                                             .stroke(Color.black, lineWidth: 2)
                                     }
                                 }
-                            
                         }
-                    .alert(isPresented: $showingAlert) {
-                                  Alert(title: Text("Alert"), message: Text("This is a dialog"), dismissButton: .default(Text("OK")))
-                              }
-                          
+                        /**
+                         .sheet(isPresented: $showingAlert)
+                             {
+                                 ItemListView(items: appointments, isPresented: $showingAlert)
+                             }                            */
+                   //.alert(isPresented: $showingAlert) {
+                     //  alertWithList
+                    //}
+                    
                     .disabled(Date.now.startOfDay > day.startOfDay)
                         
                     }
                 }
-                
-                
             }
             .padding(.horizontal)
             .frame(width: size)
@@ -93,11 +92,29 @@ struct CustomCalendarView: View {
                 .stroke(Color.white.opacity(1),lineWidth: 2)
             
         }
-        
+            List(appointments, id: \.self){ item in
+                Button(action: {
+                    self.selectedItem = item
+                    print("Selected Item \(item)")
+                }){
+                    Text(item.time)
+                }
+                .alert(item: $selectedItem){ selectedItem in
+                    Alert(title: Text("Sel Item"),
+                          message: Text("???"),
+                          primaryButton: .default(Text("Book time")),
+                        secondaryButton: .default(Text("Cancel"))
+                                        )
+                }
+            }
         
     }
+    
+   func fetchAppointments() async throws -> [Appointment]
+    {
+       return try await AppointmentService.fetchAppointments()
+    }
 }
-
 #Preview {
     CustomCalendarView()
 }
