@@ -25,7 +25,7 @@ struct DummyTestViewEmailVerification: View {
             Button(action: {
                 viewModel.createTemporaryUser(email: email, password: password)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    viewModel.logInUser(email, password) { loggedIn in
+                    viewModel.logInUser(email: email, password: password) { loggedIn in
                         if loggedIn {
                             statusText = "CHECK MAIL FOR VERIFICATION"
                             print("User logged in")
@@ -53,18 +53,13 @@ struct DummyTestViewEmailVerification: View {
                 
             }
         }
-        .onAppear {
-            viewModel.startVerificationTimer()
-            
-        }
+
         .onChange(of: viewModel.isMailVerified) {
             if viewModel.isMailVerified == true {
                 viewModel.stopVerificationTimer()
                 viewModel.deleteUser()
+                print("Verification Completed")
             }
-        }
-        .onDisappear {
-            viewModel.stopVerificationTimer()
         }
     }
 }

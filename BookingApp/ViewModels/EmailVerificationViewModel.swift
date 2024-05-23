@@ -12,6 +12,16 @@ class EmailVerificationViewModel: ObservableObject {
     
     private var timerForVerification: Timer?
     @Published var isMailVerified = false
+    
+    init() {
+        self.startVerificationTimer()
+        
+    }
+    
+    deinit {
+        self.stopVerificationTimer()
+        
+    }
 
     func createTemporaryUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -19,7 +29,7 @@ class EmailVerificationViewModel: ObservableObject {
                 self.sendEmailVerification(user: user)
             }
             if let error = error {
-                print("Could not create user \(error)")
+                print("Could not create user \(error.localizedDescription)")
                 return
             }
         }
@@ -28,23 +38,22 @@ class EmailVerificationViewModel: ObservableObject {
     func sendEmailVerification(user: User) {
         user.sendEmailVerification { error in
             if let error = error {
-                print("Could not send verification-mail \(error)")
+                print("Could not send verification-mail \(error.localizedDescription)")
                 return
             }
-            
         }
     }
     
-    func logInUser( _ email: String, _ password: String, completion: @escaping (Bool) -> Void) {
+    func logInUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
        let auth =  Auth.auth()
             auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print("User login failed: \(error.localizedDescription)")
+                print("Could not log in user: \(error.localizedDescription)")
                 completion(false)
                 return
             }
                 completion(true)
-            print("User logged in: \(String(describing: authResult?.user.email))")
+            print("Succeeded to log in user: \(String(describing: authResult?.user.email))")
 
         }
     }
@@ -57,9 +66,7 @@ class EmailVerificationViewModel: ObservableObject {
                 return
             }
             self.isMailVerified = user.isEmailVerified
-            
         }
- 
     }
     
     func startVerificationTimer() {
@@ -71,7 +78,7 @@ class EmailVerificationViewModel: ObservableObject {
     func stopVerificationTimer() {
         timerForVerification?.invalidate()
         timerForVerification = nil
-        print("STOPPING TIMER")
+        print("Timer stopped")
     }
     
     func deleteUser() {
@@ -81,7 +88,7 @@ class EmailVerificationViewModel: ObservableObject {
             if let error = error {
                 print("Error when trying to delete user: \(error.localizedDescription)")
             } else {
-                print("User deleted.")
+                print("User deleted successfully.")
             }
         }
     }
