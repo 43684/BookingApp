@@ -41,5 +41,11 @@ class ServicesViewModel: ObservableObject {
                 
     }
     
+    func saveSelectedService(_ selectedService: Service?){
+        if let selectedService = selectedService {
+            UserDefaults.standard.set(selectedService.name, forKey: "selectedService")
+        }
+    }
+    
     
 }

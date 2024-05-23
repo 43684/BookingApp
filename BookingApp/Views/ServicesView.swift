@@ -10,13 +10,17 @@ import SwiftUI
 struct ServicesView: View {
     
     @StateObject var viewModel = ServicesViewModel()
+    @State private var selectedService: Service?
+    
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color(hex:"#D3BD9C"))]
     }
     
+    
     var body: some View {
         VStack {
+        
             Spacer()
             List{
                 ForEach(viewModel.services){ service in
@@ -41,14 +45,30 @@ struct ServicesView: View {
                         //.font(.caption)
                         //.offset(x: 5,y:5)
                     }
+                    .onTapGesture {
+                        selectedService = service
+                        
+                    }
+                    .background(selectedService == service ? Color.yellow : Color.clear)
+                                        .contentShape(Rectangle())
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal)
+                                        .listRowInsets(EdgeInsets())
+                                        .listRowBackground(Color.black)
                     Divider()
                         .frame(minHeight: 0.3)
                         .overlay(Color(hex: "#D3BD9C"))
                     
-                }.listRowBackground(Color.black)
+                }
+
+                
+                .listRowBackground(Color.black)
             }
             
             Button("NEXT"){
+                viewModel.saveSelectedService(selectedService)
+                
             }.padding()
                 .font(.title3)
                 .background(
