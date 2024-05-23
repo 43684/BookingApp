@@ -27,5 +27,9 @@ class ServicesService {
         reference.setData(appointmentData)
         
     }
+    
+    func deleteService(service:Service){
+        Firestore.firestore().collection("services").document(service.id).delete()
+    }
    
 }

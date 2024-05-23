@@ -13,10 +13,10 @@ class AppointmentService {
     
     static let shared = AppointmentService()
     
-    func fetchAppointments() async throws {
+    static func fetchAppointments() async throws -> [Appointment] {
         let snapshot = try await Firestore.firestore().collection("appointments").getDocuments()
-        print(snapshot.query)
-        
+        let appointments = snapshot.documents.compactMap({try? $0.data(as: Appointment.self)})
+        return appointments
     }
     
     func createAppointments(appointment:Appointment){
@@ -25,5 +25,9 @@ class AppointmentService {
         guard let appointmentData = try? Firestore.Encoder().encode(appointment) else {return}
         reference.setData(appointmentData)
         
+    }
+    
+    func cancelAppointment(appointment:Appointment){
+        Firestore.firestore().collection("appointments").document(appointment.id).delete()
     }
 }

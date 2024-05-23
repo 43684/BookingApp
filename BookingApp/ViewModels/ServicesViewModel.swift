@@ -19,7 +19,7 @@ class ServicesViewModel: ObservableObject {
     
     init() {
         self.service = ServicesService()
-       // Task{try await service.fetchServices()}
+        Task{try await fetchData()}
         setupSubscibers()
     }
     
@@ -27,6 +27,18 @@ class ServicesViewModel: ObservableObject {
         AuthService.shared.$isAdminLoggedIn.sink { [weak self] adminSessionFromAuthService in
             self?.isAdminLoggedIn = adminSessionFromAuthService
         }.store(in: &cancellables)
+    }
+    
+    
+    @MainActor
+    func fetchData() async throws {
+        
+        let fetchedServices = try await ServicesService.fetchServices()
+        
+        services = []
+        services.append(contentsOf: fetchedServices)
+       
+                
     }
     
     
