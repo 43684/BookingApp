@@ -19,8 +19,12 @@ class PopUpEmailViewModel: NSObject, ObservableObject, MFMailComposeViewControll
         if MFMailComposeViewController.canSendMail() {
             isShowingMailView = true
         } else {
-            alertMessage = "Cannot send email from this device"
-            showAlert = true
+            print("This device needs to me configured to Mail app")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.alertMessage = "Configure the Mail app from apple to send"
+                self.showAlert = true
+            }
         }
     }
 
