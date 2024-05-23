@@ -7,27 +7,25 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class ProductsViewModel: ObservableObject {
     
     @Published var products = [Product]()
-    @Published var isAdminLoggedIn = false
-    
-    let service: ProductService
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.service = ProductService()
-      //  Task{try await service.fetchProducts()}
-        setupSubscibers()
+        Task{try await fetchProducts()}
     }
     
-    private func setupSubscibers(){
-        AuthService.shared.$isAdminLoggedIn.sink { [weak self] adminSessionFromAuthService in
-            self?.isAdminLoggedIn = adminSessionFromAuthService
-        }.store(in: &cancellables)
+    @MainActor
+    func fetchProducts() async throws  {
+        let fetchedProducts = try await ProductService.fetchProducts()
+        
+        products = []
+        products.append(contentsOf: fetchedProducts)
     }
-    
-    
 }
+
+

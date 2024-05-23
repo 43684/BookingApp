@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct BookingAppApp: App {
+    
     init(){
         FirebaseApp.configure()
     }
