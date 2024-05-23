@@ -37,13 +37,14 @@ struct CustomCalendarView: View {
                             Task{
                          do{
                              appointments = try await fetchAppointments()
-                             print(appointments)
+                            appointments = filterAppointments(values: appointments, date: day)
+                            // print(appointments)
                                 showingAlert = true
                          }catch{
                              print("Fail to fetch appointments")
                          }
                      }
-                        //    print("Date selected \(day)")
+                            print("Date selected \(day)")
                           
                         }
                     label: {
@@ -58,15 +59,6 @@ struct CustomCalendarView: View {
                                     }
                                 }
                         }
-                        /**
-                         .sheet(isPresented: $showingAlert)
-                             {
-                                 ItemListView(items: appointments, isPresented: $showingAlert)
-                             }                            */
-                   //.alert(isPresented: $showingAlert) {
-                     //  alertWithList
-                    //}
-                    
                     .disabled(Date.now.startOfDay > day.startOfDay)
                         
                     }
@@ -80,9 +72,7 @@ struct CustomCalendarView: View {
             })
             .onChange(of: date) {
                 days = date.calendarDisplayDays
-                
             }
-            
         }
         .frame(width: size)
         .padding(.vertical, 10)
@@ -98,6 +88,7 @@ struct CustomCalendarView: View {
                     print("Selected Item \(item)")
                 }){
                     Text(item.time)
+                    Text("\(item.day.dayOfMonth)")
                 }
                 .alert(item: $selectedItem){ selectedItem in
                     Alert(title: Text("Sel Item"),
@@ -110,9 +101,16 @@ struct CustomCalendarView: View {
         
     }
     
-   func fetchAppointments() async throws -> [Appointment]
+    func fetchAppointments() async throws -> [Appointment]
     {
-       return try await AppointmentService.fetchAppointments()
+        return try await AppointmentService.fetchAppointments()
+    }
+   func filterAppointments(values:[Appointment], date :Date) -> [Appointment]
+    {
+        let calleKallender = Calendar.current
+        let month = calleKallender.component(.month, from: date)
+        let day = calleKallender.component(.day, from: date)
+        return values.filter{$0.day.dayOfMonth == day && $0.day.monthValue == month}
     }
 }
 #Preview {
