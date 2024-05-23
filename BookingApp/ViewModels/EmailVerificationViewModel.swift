@@ -58,7 +58,7 @@ class EmailVerificationViewModel: ObservableObject {
         }
     }
     
-    func isEmailVerified() {
+    func verificationCheck() {
         guard let user = Auth.auth().currentUser else { return }
         user.reload { [self] (error) in
             if let error = error {
@@ -71,7 +71,7 @@ class EmailVerificationViewModel: ObservableObject {
     
     func startVerificationTimer() {
         timerForVerification = Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
-            self.isEmailVerified()
+            self.verificationCheck()
         }
     }
 
