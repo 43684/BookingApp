@@ -78,6 +78,7 @@
 		F15912D12C00886F006BF780 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F15912D02C00886F006BF780 /* FirebaseRemoteConfigSwift */; };
 		F15912D32C00886F006BF780 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = F15912D22C00886F006BF780 /* FirebaseVertexAI-Preview */; };
 		F1FB19B12C008AEC0010EA70 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB19B02C008AEB0010EA70 /* Email.swift */; };
+		F1FB19B32C008D7F0010EA70 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB19B22C008D7F0010EA70 /* ConfirmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		F15912A62C008672006BF780 /* PopupEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupEmailView.swift; sourceTree = "<group>"; };
 		F15912A82C008682006BF780 /* MailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		F1FB19B02C008AEB0010EA70 /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
+		F1FB19B22C008D7F0010EA70 /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				7CFE6FB32BF269D9009E6678 /* CustomViews */,
 				7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */,
 				DF79A6C52C007D8F00DAD07C /* AnimationView.swift */,
+				F1FB19B22C008D7F0010EA70 /* ConfirmView.swift */,
 				F15912A22C0085E4006BF780 /* BookingView.swift */,
 				7CFE6F7A2BEE727D009E6678 /* SignInView.swift */,
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
@@ -408,6 +411,7 @@
 				F1FB19B12C008AEC0010EA70 /* Email.swift in Sources */,
 				7CFE6F9E2BF10438009E6678 /* ProductService.swift in Sources */,
 				7CFE6FAB2BF125B3009E6678 /* ProductsView.swift in Sources */,
+				F1FB19B32C008D7F0010EA70 /* ConfirmView.swift in Sources */,
 				F159129F2C0085A5006BF780 /* ConfirmViewModel.swift in Sources */,
 				F159129D2C008594006BF780 /* BookingViewModel.swift in Sources */,
 				7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */,
