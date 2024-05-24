@@ -74,7 +74,7 @@ struct BookingCompleteView: View {
                 .padding(15)
             
             VStack{
-                AnimationView(fileName: "congratulations")
+                                AnimationView(fileName: "congratulations")
                 
             }
 
