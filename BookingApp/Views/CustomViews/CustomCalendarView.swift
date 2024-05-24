@@ -17,12 +17,12 @@ struct CustomCalendarView: View {
     @State var days: [Date] = []
     @State private var showingAlert = false
     @State var service = AppointmentService()
-    @State var appointments : [Appointment] = []
+    @State private var appointments : [Appointment] = []
     @State private var selectedItem: Appointment?
     @State private var timeBooked = false
-    @StateObject var viewModel = ContentViewModel()
+    @StateObject var viewModel = ConfirmViewModel()
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack{
                 VStack(alignment:.center,spacing:-0) {
                     VStack {
@@ -84,17 +84,24 @@ struct CustomCalendarView: View {
                         .stroke(Color.white.opacity(1),lineWidth: 2)
                     
                 }
+             
                 
-                List(appointments, id: \.self){ item in
-                    Button("\(item.time) - \(item.day.dayOfMonth)"){
+                List($appointments, id: \.self){ $item in
+                    
+                    Text(item.time).onTapGesture{
                         saveAppointment(appointment: item)
-                        timeBooked = true
-                        print("Clicked")
                     }
-                        NavigationLink(destination: ContentView(viewModel: viewModel), isActive: $timeBooked){
-                           EmptyView()
-                        }.hidden()
+                      /*  NavigationLink(destination: ConfirmView(), isActive: $timeBooked){
+                            EmptyView()
+                        }.hidden()*/
+                    }
+                Button("Next"){
+                   // saveAppointment(appointment: item)
+                    timeBooked = true
                 }
+                .navigationDestination(isPresented: $timeBooked, destination: {
+                            ConfirmView()
+                        })
             }
         }
     }
@@ -108,6 +115,7 @@ struct CustomCalendarView: View {
         defaults.set(appointment.day.monthValue, forKey: "appointmentMonthValue")
         defaults.set(appointment.day.month, forKey: "appointmentMonth")
         UserDefaults.standard.synchronize()
+        print("Hello")
     }
     func fetchAppointments() async throws -> [Appointment]
     {
@@ -115,12 +123,14 @@ struct CustomCalendarView: View {
     }
    func filterAppointments(values:[Appointment], date :Date) -> [Appointment]
     {
-        let calleKallender = Calendar.current
-        let month = calleKallender.component(.month, from: date)
-        let day = calleKallender.component(.day, from: date)
+        let calender = Calendar.current
+        let month = calender.component(.month, from: date)
+        let day = calender.component(.day, from: date)
         return values.filter{$0.day.dayOfMonth == day && $0.day.monthValue == month}
     }
 }
 #Preview {
-    CustomCalendarView()
+    NavigationView{
+        CustomCalendarView()
+    }
 }
