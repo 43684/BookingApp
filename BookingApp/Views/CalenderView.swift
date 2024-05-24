@@ -9,12 +9,7 @@ import SwiftUI
 
 struct CalenderView: View {
     var body: some View {
-        CustomCalendarView()
-        Text("No time selected")
-        Button("Next") {
-            
-            
-        }
+                CustomCalendarView()
     }
 }
 
