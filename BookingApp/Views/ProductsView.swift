@@ -8,35 +8,59 @@
 import SwiftUI
 
 struct ProductsView: View {
-    
     @StateObject var viewModel = ProductsViewModel()
     
-    
     var body: some View {
-        NavigationStack{
-            List{
-                ForEach(0..<10, id: \.self){ i in
-                    HStack{
-                        
-                        Text("\(i+1) \(Product.MOCK_PRODUCT.name)")
-                        Spacer()
-                        VStack{
-                            Text("\(Product.MOCK_PRODUCT.price)")
-                            Text("Price")
+        NavigationStack {
+            List(viewModel.products) { product in
+                HStack {
+                    if let imageUrl = product.imageUrl,
+                       let url = URL(string: imageUrl) {
+                        AsyncImage(url: url) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 50)
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 50)
+                            @unknown default:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 50)
+                            }
                         }
-                        .font(.caption)
-                        
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 50, height: 50)
                     }
-                    .padding(15)
-                    
+                    Spacer()
+                    VStack(alignment: .leading) {
+                        Text(product.name)
+                        Text("\(product.price) kr")
+                            .font(.caption)
+                    }
+                    Spacer()
                 }
+                .padding(15)
+            }
+            .navigationTitle("Products")
+            .onAppear {
+               // viewModel.fetchProducts()
             }
         }
     }
 }
 
-
 #Preview {
     ProductsView()
 }
-

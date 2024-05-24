@@ -10,13 +10,14 @@ import Firebase
 
 @main
 struct BookingAppApp: App {
+    
     init(){
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AdminView()
         }
     }
 }
