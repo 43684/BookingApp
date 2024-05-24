@@ -68,13 +68,47 @@ class ProductService {
         }
     }
     
-    func deleteProduct(product: Product) {
-        Firestore.firestore().collection("products").document(product.id).delete() { error in
-            if let error = error {
-                print("Error deleting product: \(error)")
-            } else {
-                print("Successfully deleted product")
+    func deleteImage(imageUrl: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            let storageRef = Storage.storage().reference(forURL: imageUrl)
+            storageRef.delete { error in
+                if let error = error {
+                    print("Error deleting image: \(error)")
+                    completion(.failure(error))
+                } else {
+                    print("Successfully deleted image.")
+                    completion(.success(()))
+                }
             }
         }
-    }
+    
+    func deleteProduct(product: Product) {
+            // Check if the product has an image URL
+            if let imageUrl = product.imageUrl {
+                // Delete the image from Firebase Storage first
+                deleteImage(imageUrl: imageUrl) { result in
+                    switch result {
+                    case .success:
+                        // Then delete the product from Firestore
+                        Firestore.firestore().collection("products").document(product.id).delete() { error in
+                            if let error = error {
+                                print("Error deleting product: \(error)")
+                            } else {
+                                print("Successfully deleted product")
+                            }
+                        }
+                    case .failure(let error):
+                        print("Error deleting image before deleting product: \(error)")
+                    }
+                }
+            } else {
+                // If there's no image, just delete the product
+                Firestore.firestore().collection("products").document(product.id).delete() { error in
+                    if let error = error {
+                        print("Error deleting product: \(error)")
+                    } else {
+                        print("Successfully deleted product")
+                    }
+                }
+            }
+        }
 }
