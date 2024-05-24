@@ -10,6 +10,9 @@ import SwiftUI
 struct ServicesView: View {
     
     @StateObject var viewModel = ServicesViewModel()
+    @StateObject var emailViewModel = PopUpEmailViewModel()
+    @State var showPopup = false
+//    @State var showMailView = false
     
     var body: some View {
         NavigationStack{
@@ -34,10 +37,42 @@ struct ServicesView: View {
                 }
             }
         }
+        .toolbar{
+            
+            ToolbarItem(placement: .bottomBar){
+                
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        showPopup.toggle()
+                    }) {
+                        Image(systemName: "envelope.circle")
+                            .font(.largeTitle)
+                            .foregroundStyle(Color.yellow)
+                }
+                }
+            }
+                
+        }
+        .sheet(isPresented: $showPopup){
+            EmailPopupView(showPopup: $showPopup)
+                .environmentObject(emailViewModel)
+        }
+        .alert(isPresented: $emailViewModel.showAlert){
+            Alert(title: Text("Message"), message: Text(emailViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+        }
+        .sheet(isPresented: $emailViewModel.isShowingMailView){
+            MailView(viewModel: emailViewModel)
+        }
+        
+        
+        
     }
 }
-/*
 #Preview {
-    ServicesView()
+    NavigationStack{
+        ServicesView()}
 }
-*/
+
+
