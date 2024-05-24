@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		65BB0DDE2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */; };
 		65BB0DE02BFCBB8300527F81 /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */; };
-
 		7C9B3A782BFDDD780067E10E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A772BFDDD780067E10E /* FirebaseAuth */; };
 		7C9B3A7A2BFDDD780067E10E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A792BFDDD780067E10E /* FirebaseDatabase */; };
 		7C9B3A7C2BFDDD780067E10E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A7B2BFDDD780067E10E /* FirebaseDatabaseSwift */; };
@@ -19,7 +17,6 @@
 		7C9B3A822BFDDD780067E10E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A812BFDDD780067E10E /* FirebaseStorage */; };
 		7C9B3A842BFDDD780067E10E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A832BFDDD780067E10E /* FirebaseStorageCombine-Community */; };
 		7C9B3A862BFDE2670067E10E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B3A852BFDE2670067E10E /* ImagePicker.swift */; };
-
 		7CFE6F6D2BE4D4DD009E6678 /* BookingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */; };
 		7CFE6F6F2BE4D4DD009E6678 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */; };
 		7CFE6F712BE4D4E4009E6678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFE6F702BE4D4E4009E6678 /* Assets.xcassets */; };
@@ -45,17 +42,20 @@
 		7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB12BF2694E009E6678 /* DateExtention.swift */; };
 		7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */; };
 		7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB62BF37446009E6678 /* AdminView.swift */; };
+		DF79A6BE2C007A8600DAD07C /* BookingCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6BD2C007A8600DAD07C /* BookingCompleteView.swift */; };
+		DF79A6C02C007AD900DAD07C /* BookingCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */; };
+		DF79A6C22C007AE300DAD07C /* congratulations.json in Resources */ = {isa = PBXBuildFile; fileRef = DF79A6C12C007AE200DAD07C /* congratulations.json */; };
+		DF79A6C42C007AFA00DAD07C /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6C32C007AF900DAD07C /* ColorExtention.swift */; };
+		DF79A6C62C007D8F00DAD07C /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6C52C007D8F00DAD07C /* AnimationView.swift */; };
+		DF79A6C92C007DDC00DAD07C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DF79A6C82C007DDC00DAD07C /* Lottie */; };
 		F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */; };
 		F15912982BFC1274006BF780 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15912972BFC1274006BF780 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
 		65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTestViewEmailVerification.swift; sourceTree = "<group>"; };
 		65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewModel.swift; sourceTree = "<group>"; };
-
 		7C9B3A852BFDE2670067E10E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-
 		7CFE6F692BE4D4DD009E6678 /* BookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingAppApp.swift; sourceTree = "<group>"; };
 		7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +82,11 @@
 		7CFE6FB12BF2694E009E6678 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		7CFE6FB62BF37446009E6678 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		DF79A6BD2C007A8600DAD07C /* BookingCompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCompleteView.swift; sourceTree = "<group>"; };
+		DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCompleteViewModel.swift; sourceTree = "<group>"; };
+		DF79A6C12C007AE200DAD07C /* congratulations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congratulations.json; sourceTree = "<group>"; };
+		DF79A6C32C007AF900DAD07C /* ColorExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
+		DF79A6C52C007D8F00DAD07C /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		F15912972BFC1274006BF780 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +97,7 @@
 			files = (
 				7C9B3A7C2BFDDD780067E10E /* FirebaseDatabaseSwift in Frameworks */,
 				7C9B3A7A2BFDDD780067E10E /* FirebaseDatabase in Frameworks */,
+				DF79A6C92C007DDC00DAD07C /* Lottie in Frameworks */,
 				7C9B3A842BFDDD780067E10E /* FirebaseStorageCombine-Community in Frameworks */,
 				F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */,
 				7C9B3A7E2BFDDD780067E10E /* FirebaseFirestore in Frameworks */,
@@ -123,6 +129,7 @@
 		7CFE6F6B2BE4D4DD009E6678 /* BookingApp */ = {
 			isa = PBXGroup;
 			children = (
+				DF79A6C12C007AE200DAD07C /* congratulations.json */,
 				7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */,
 				7CFE6F8C2BF0F8E0009E6678 /* GoogleService-Info.plist */,
 				7CFE6FA12BF112CE009E6678 /* Models */,
@@ -152,6 +159,7 @@
 				7CFE6F7C2BEE72C5009E6678 /* SignInViewModel.swift */,
 				7CFE6FA82BF11698009E6678 /* ServicesViewModel.swift */,
 				7CFE6FAE2BF268B3009E6678 /* AdminViewModel.swift */,
+				DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */,
 				65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */,
 			);
 			path = ViewModels;
@@ -162,9 +170,11 @@
 			children = (
 				7CFE6FB32BF269D9009E6678 /* CustomViews */,
 				7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */,
+				DF79A6C52C007D8F00DAD07C /* AnimationView.swift */,
 				7CFE6F7A2BEE727D009E6678 /* SignInView.swift */,
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
 				7CFE6FAA2BF125B3009E6678 /* ProductsView.swift */,
+				DF79A6BD2C007A8600DAD07C /* BookingCompleteView.swift */,
 				7CFE6FB62BF37446009E6678 /* AdminView.swift */,
 				65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */,
 			);
@@ -186,6 +196,7 @@
 		7CFE6F8B2BEE7ACE009E6678 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				DF79A6C32C007AF900DAD07C /* ColorExtention.swift */,
 				7CFE6F892BEE7AC6009E6678 /* StringExtention.swift */,
 				7CFE6FB12BF2694E009E6678 /* DateExtention.swift */,
 				F15912972BFC1274006BF780 /* UIView.swift */,
@@ -237,6 +248,7 @@
 				7C9B3A7F2BFDDD780067E10E /* FirebaseFirestoreSwift */,
 				7C9B3A812BFDDD780067E10E /* FirebaseStorage */,
 				7C9B3A832BFDDD780067E10E /* FirebaseStorageCombine-Community */,
+				DF79A6C82C007DDC00DAD07C /* Lottie */,
 			);
 			productName = BookingApp;
 			productReference = 7CFE6F692BE4D4DD009E6678 /* BookingApp.app */;
@@ -269,6 +281,7 @@
 			packageReferences = (
 				F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				7C9B3A762BFDDD780067E10E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DF79A6C72C007DDC00DAD07C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 7CFE6F6A2BE4D4DD009E6678 /* Products */;
 			projectDirPath = "";
@@ -285,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CFE6F742BE4D4E4009E6678 /* Preview Assets.xcassets in Resources */,
+				DF79A6C22C007AE300DAD07C /* congratulations.json in Resources */,
 				7CFE6F712BE4D4E4009E6678 /* Assets.xcassets in Resources */,
 				7CFE6F8D2BF0F8E0009E6678 /* GoogleService-Info.plist in Resources */,
 			);
@@ -312,14 +326,18 @@
 				7CFE6FA02BF10469009E6678 /* AppointmentService.swift in Sources */,
 				7CFE6F7F2BEE7378009E6678 /* AuthService.swift in Sources */,
 				7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */,
+				DF79A6C02C007AD900DAD07C /* BookingCompleteViewModel.swift in Sources */,
 				7CFE6F7B2BEE727D009E6678 /* SignInView.swift in Sources */,
+				DF79A6C42C007AFA00DAD07C /* ColorExtention.swift in Sources */,
 				7CFE6FAD2BF125CD009E6678 /* ProductsViewModel.swift in Sources */,
 				F15912982BFC1274006BF780 /* UIView.swift in Sources */,
 				7CFE6FA92BF11698009E6678 /* ServicesViewModel.swift in Sources */,
+				DF79A6C62C007D8F00DAD07C /* AnimationView.swift in Sources */,
 				7CFE6FA72BF112FE009E6678 /* Appointment.swift in Sources */,
 				7CFE6FAF2BF268B3009E6678 /* AdminViewModel.swift in Sources */,
 				7CFE6F9A2BF0FAEC009E6678 /* AdminService.swift in Sources */,
 				7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */,
+				DF79A6BE2C007A8600DAD07C /* BookingCompleteView.swift in Sources */,
 				7C9B3A862BFDE2670067E10E /* ImagePicker.swift in Sources */,
 				7CFE6F6D2BE4D4DD009E6678 /* BookingAppApp.swift in Sources */,
 				7CFE6F832BEE75A5009E6678 /* ServicesView.swift in Sources */,
@@ -540,6 +558,14 @@
 				minimumVersion = 10.26.0;
 			};
 		};
+		DF79A6C72C007DDC00DAD07C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -585,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C9B3A762BFDDD780067E10E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		DF79A6C82C007DDC00DAD07C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF79A6C72C007DDC00DAD07C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
