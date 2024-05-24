@@ -14,9 +14,9 @@ struct Appointment: Codable, Identifiable, Hashable {
     @DocumentID var uid: String?
     
     var booked: Bool
-    let time: String
-    let year: Int
-    let day: Day
+    var time: String
+    var year: Int
+    var day: Day
     
     var id : String {
         return uid ?? UUID().uuidString

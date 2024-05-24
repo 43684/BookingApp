@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConfirmView: View {
     
-    @ObservedObject var viewModel = AdminViewModel()
+    @ObservedObject var viewModel = ConfirmViewModel()
     let orderDetails = "123456"
     
     init() {
