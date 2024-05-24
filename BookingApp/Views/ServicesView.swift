@@ -11,6 +11,7 @@ struct ServicesView: View {
     
     @StateObject var viewModel = ServicesViewModel()
     @State private var selectedService: Service?
+    @State var nextView: Bool = false
     
     
     init() {
@@ -19,8 +20,9 @@ struct ServicesView: View {
     
     
     var body: some View {
+        NavigationStack {
         VStack {
-        
+            
             Spacer()
             List{
                 ForEach(viewModel.services){ service in
@@ -50,24 +52,24 @@ struct ServicesView: View {
                         
                     }
                     .background(selectedService == service ? Color.yellow : Color.clear)
-                                        .contentShape(Rectangle())
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                        .padding(.vertical, 8)
-                                        .padding(.horizontal)
-                                        .listRowInsets(EdgeInsets())
-                                        .listRowBackground(Color.black)
+                    .contentShape(Rectangle())
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.black)
                     Divider()
                         .frame(minHeight: 0.3)
                         .overlay(Color(hex: "#D3BD9C"))
                     
                 }
-
                 
                 .listRowBackground(Color.black)
             }
             
             Button("NEXT"){
                 viewModel.saveSelectedService(selectedService)
+                nextView = true
                 
             }.padding()
                 .font(.title3)
@@ -94,9 +96,13 @@ struct ServicesView: View {
             }.padding()
             
         }.navigationTitle("Choose Service")
-         .background(.black)
-         .scrollContentBackground(.hidden)
+            .navigationDestination(isPresented: $nextView, destination: {
+                ProductsView()
+            })
+            .background(.black)
+            .scrollContentBackground(.hidden)
     }
+}
 }
 
 #Preview {
