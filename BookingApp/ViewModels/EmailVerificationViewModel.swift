@@ -13,16 +13,6 @@ class EmailVerificationViewModel: ObservableObject {
     private var timerForVerification: Timer?
     @Published var isMailVerified = false
     
-    init() {
-        self.startVerificationTimer()
-        
-    }
-    
-    deinit {
-        self.stopVerificationTimer()
-        
-    }
-
     func createTemporaryUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
@@ -45,16 +35,16 @@ class EmailVerificationViewModel: ObservableObject {
     }
     
     func logInUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
-       let auth =  Auth.auth()
-            auth.signIn(withEmail: email, password: password) { authResult, error in
+        let auth =  Auth.auth()
+        auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Could not log in user: \(error.localizedDescription)")
                 completion(false)
                 return
             }
-                completion(true)
+            completion(true)
             print("Succeeded to log in user: \(String(describing: authResult?.user.email))")
-
+            
         }
     }
     
@@ -72,9 +62,10 @@ class EmailVerificationViewModel: ObservableObject {
     func startVerificationTimer() {
         timerForVerification = Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
             self.verificationCheck()
+            print("Timer launched")
         }
     }
-
+    
     func stopVerificationTimer() {
         timerForVerification?.invalidate()
         timerForVerification = nil

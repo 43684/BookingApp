@@ -10,6 +10,7 @@ class BookingViewModel: ObservableObject{
      @Published var firstName: String = ""
      @Published var lastName: String = ""
      @Published var email: String = ""
+     @Published var password: String = "temporary1234"
      @Published var phone: String = ""
      @Published var message: String = ""
      @Published var consent: Bool = false
