@@ -10,8 +10,11 @@ import SwiftUI
 struct BookingView: View {
 
      @ObservedObject var viewModel = BookingViewModel()
+     @ObservedObject var emailVerificaton = EmailVerificationViewModel()
+     @State var nextView: Bool = false
+    
      var body: some View {
-         NavigationView {
+         NavigationStack {
                  Form {
                      Section(header: Text("Your Information").font(.title).foregroundStyle(Color.yellow)){
                          TextField("First Name", text: $viewModel.firstName)
@@ -69,6 +72,17 @@ struct BookingView: View {
                              } else {
                                  Button(action: {
                                      viewModel.submit()
+                                     emailVerificaton.createTemporaryUser(email: viewModel.email, password: viewModel.password)
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                         emailVerificaton.logInUser(email: viewModel.email, password: viewModel.password) { loggedIn in
+                                             if loggedIn {
+                                                nextView = true
+                                                 
+                                             } else {
+                                                 print("User login failed")
+                                             }
+                                         }
+                                     }
                                  }) {
                                      Text("Send Order")
                                          .fontWeight(.bold)
@@ -77,6 +91,9 @@ struct BookingView: View {
                                          .background(Color.yellow)
                                          .cornerRadius(10)
                                  }
+                                 .navigationDestination(isPresented: $nextView, destination: {
+                                     EmailVerificationView()
+                                 })
                              }
                              Spacer()
                          }
@@ -87,6 +104,7 @@ struct BookingView: View {
 
 
          }
+
      }
  }
 

@@ -13,11 +13,6 @@ class EmailVerificationViewModel: ObservableObject {
     private var timerForVerification: Timer?
     @Published var isMailVerified = false
     
-    init() {
-        self.startVerificationTimer()
-        
-    }
-    
     deinit {
         self.stopVerificationTimer()
         
