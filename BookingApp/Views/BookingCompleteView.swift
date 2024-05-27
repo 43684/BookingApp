@@ -10,92 +10,73 @@ import SwiftUI
 struct BookingCompleteView: View {
     var body: some View {
         
-        VStack{
+        VStack {
+            Spacer(minLength: 100)
+            
             //First box
-            ZStack{
-                RoundedRectangle(cornerRadius: 25.0 )
-                    .foregroundColor(.orange)
-                ZStack{
-                    Color.black
-                        .border(Color(hex:0xD3BD9C))
-                        .cornerRadius(10.0)
-                    HStack {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.green)
-                            .border(Color.white)
-                            .cornerRadius(5)
-                        Text("Your booking has been sent to the studio.")
-                            .foregroundColor(.white)
-                    }
+            ZStack {
+                    RoundedRectangle(cornerRadius: 15.0)
+                        .stroke(Color(hex: "#D3BD9C"), lineWidth: 1)
                     
-                }
-            }.frame(width: 380,height: 100)
-                .padding(15)
+                    HStack {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.green)
+                                .border(Color(hex: "#D3BD9C"))
+                                
+                            Text("Your booking has been sent to the studio.")
+                                .foregroundColor(Color(hex: "#D3BD9C"))
+                    }
+                        
+                }.frame(width: 360,height: 100, alignment: .leading)
+                    .padding(5)
+            
+             
             //Second box
             ZStack{
-                RoundedRectangle(cornerRadius: 25.0 )
-                    .foregroundColor(.orange)
-                ZStack{
-                    Color.black
-                        .border(Color(hex:0xD3BD9C))
-                        .cornerRadius(10.0)
-                    
+                RoundedRectangle(cornerRadius: 15.0 )
+                    .stroke(Color(hex: "#D3BD9C"), lineWidth: 1)
+                
                     HStack {
                         Image(systemName: "checkmark")
                             .foregroundColor(.green)
-                            .border(Color.white)
-                            .cornerRadius(5)
+                            .border(Color(hex: "#D3BD9C"))
                         
                         Text("You can see your receipt in your e-mail.")
-                            .foregroundColor(.white)
-                    }
-                }
-            }.frame(width: 380,height: 100)
-                .padding(15)
+                            .foregroundColor(Color(hex: "#D3BD9C"))
+                    }.offset(x: -7)
+                    
+                
+            }.frame(width: 360,height: 100, alignment: .leading)
+             .padding(5)
+            
             //Third box
             ZStack{
-                RoundedRectangle(cornerRadius: 25.0 )
-                    .foregroundColor(.orange)
-                ZStack{
-                    Color.black
-                        .border(Color(hex:0xD3BD9C))
-                        .cornerRadius(10.0)
+                RoundedRectangle(cornerRadius: 15.0 )
+                    .stroke(Color(hex: "#D3BD9C"), lineWidth: 1)
+                
                     HStack {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.green)
-                            .border(Color.white)
-                            .cornerRadius(5)
-                        
-                        Text("if you have questions contact the studio.")
-                            .foregroundColor(.white)
-                    }
-                }
-            }.frame(width: 380,height: 100)
-                .padding(15)
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.green)
+                                .border(Color(hex: "#D3BD9C"))
+                            
+                            Text("If you have questions contact the studio.")
+                                .foregroundColor(Color(hex: "#D3BD9C"))
+                    }.offset(x: -3)
+                
+            }.frame(width: 360,height: 100, alignment: .leading)
+             .padding(5)
+            
             
             VStack{
-                                AnimationView(fileName: "congratulations")
-                
+                    AnimationView(fileName: "congratulations")
             }
-
             Spacer()
                 
-
         }
         .background(Color.black)
     }
 }
-extension Color {
-    init(hex: Int, opacity: Double = 1) {
-        self.init(
-            .sRGB,
-            red: Double((hex >> 16) & 0xff) / 255,
-            green: Double((hex >> 08) & 0xff) / 255,
-            blue: Double((hex >> 00) & 0xff) / 255,
-            opacity: opacity
-        )
-    }
-}
+
 
 #Preview {
     BookingCompleteView()
