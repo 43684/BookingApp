@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BookingCompleteView: View {
+    @ObservedObject var smtptest = SendEmailViewModel()
+
     var body: some View {
         
         VStack{
@@ -74,17 +76,79 @@ struct BookingCompleteView: View {
                 .padding(15)
             
             VStack{
-                                AnimationView(fileName: "congratulations")
+                AnimationView(fileName: "congratulations")
                 
             }
-
+            
             Spacer()
-                
-
+            
+            
         }
-        .background(Color.black)
+        Text(UserDefaults.standard.string(forKey: "firstname") ?? "HEJ")
+        
+            .onAppear{
+                sendEmailReceipt()
+                sendBookingConfirmationEmail()
+            }
+            .background(Color.black)
+    }
+    func sendEmailReceipt() {
+        let firstName = UserDefaults.standard.string(forKey: "firstname") ?? ""
+        let lastName = UserDefaults.standard.string(forKey: "lastname") ?? ""
+        let recipientEmail = UserDefaults.standard.string(forKey: "email") ?? ""
+        let phone = UserDefaults.standard.string(forKey: "phone") ?? ""
+        let message = UserDefaults.standard.string(forKey: "message") ?? ""
+        
+        let subject = "Booking Confirmation"
+        let body = """
+            Dear \(firstName) \(lastName),
+            
+            Your booking has been successfully received.
+            
+            Details:
+            Name: \(firstName) \(lastName)
+            Phone: \(phone)
+            Message: \(message)
+            
+            Thank you for booking with us!
+            
+            Best regards,
+            The Studio Team
+            """
+        
+        smtptest.sendMailReceipt(to: recipientEmail, subject: subject, body: body)
+    }
+    func sendBookingConfirmationEmail() {
+        let firstName = UserDefaults.standard.string(forKey: "firstname") ?? ""
+        let lastName = UserDefaults.standard.string(forKey: "lastname") ?? ""
+        let recipientEmail = UserDefaults.standard.string(forKey: "email") ?? ""
+        let phone = UserDefaults.standard.string(forKey: "phone") ?? ""
+        let message = UserDefaults.standard.string(forKey: "message") ?? ""
+        
+        let subject = "Booking Confirmation"
+        let body = """
+            Hello Yana,
+            You have received a new Booking:
+            
+            Customer information:
+            Name: \(firstName) \(lastName)
+            Phone: \(phone)
+            Message: \(message)
+            Booking Information:
+            Appointment:
+            Service:
+            Products:
+            
+            Thank you for booking with us!
+            
+            Best regards,
+            The Studio Team
+            """
+        
+        smtptest.sendMailConfirmation(to: recipientEmail, subject: subject, body: body)
     }
 }
+
 extension Color {
     init(hex: Int, opacity: Double = 1) {
         self.init(
@@ -96,7 +160,8 @@ extension Color {
         )
     }
 }
+    
+    #Preview {
+        BookingCompleteView()
+    }
 
-#Preview {
-    BookingCompleteView()
-}

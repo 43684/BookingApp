@@ -51,6 +51,8 @@
 		7CFE6FB22BF2694E009E6678 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB12BF2694E009E6678 /* DateExtention.swift */; };
 		7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */; };
 		7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE6FB62BF37446009E6678 /* AdminView.swift */; };
+		DF4B7E762C04C7A600C8971E /* SendEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B7E752C04C7A600C8971E /* SendEmailViewModel.swift */; };
+		DF4B7E792C04C97700C8971E /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = DF4B7E782C04C97700C8971E /* SwiftSMTP */; };
 		DF79A6BE2C007A8600DAD07C /* BookingCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6BD2C007A8600DAD07C /* BookingCompleteView.swift */; };
 		DF79A6C02C007AD900DAD07C /* BookingCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */; };
 		DF79A6C22C007AE300DAD07C /* congratulations.json in Resources */ = {isa = PBXBuildFile; fileRef = DF79A6C12C007AE200DAD07C /* congratulations.json */; };
@@ -100,6 +102,7 @@
 		7CFE6FB12BF2694E009E6678 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		7CFE6FB42BF26A11009E6678 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		7CFE6FB62BF37446009E6678 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		DF4B7E752C04C7A600C8971E /* SendEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendEmailViewModel.swift; sourceTree = "<group>"; };
 		DF79A6BD2C007A8600DAD07C /* BookingCompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCompleteView.swift; sourceTree = "<group>"; };
 		DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCompleteViewModel.swift; sourceTree = "<group>"; };
 		DF79A6C12C007AE200DAD07C /* congratulations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congratulations.json; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 			files = (
 				7C9B3A7C2BFDDD780067E10E /* FirebaseDatabaseSwift in Frameworks */,
 				7C9B3A7A2BFDDD780067E10E /* FirebaseDatabase in Frameworks */,
+				DF4B7E792C04C97700C8971E /* SwiftSMTP in Frameworks */,
 				DF79A6C92C007DDC00DAD07C /* Lottie in Frameworks */,
 				7C9B3A842BFDDD780067E10E /* FirebaseStorageCombine-Community in Frameworks */,
 				F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */,
@@ -182,6 +186,7 @@
 				655273B82BFF3FF8001D31CD /* ConfirmViewModel.swift */,
 				DF79A6BF2C007AD900DAD07C /* BookingCompleteViewModel.swift */,
 				65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */,
+				DF4B7E752C04C7A600C8971E /* SendEmailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				7C9B3A812BFDDD780067E10E /* FirebaseStorage */,
 				7C9B3A832BFDDD780067E10E /* FirebaseStorageCombine-Community */,
 				DF79A6C82C007DDC00DAD07C /* Lottie */,
+				DF4B7E782C04C97700C8971E /* SwiftSMTP */,
 			);
 			productName = BookingApp;
 			productReference = 7CFE6F692BE4D4DD009E6678 /* BookingApp.app */;
@@ -309,6 +315,7 @@
 				F15912922BFBFE96006BF780 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				7C9B3A762BFDDD780067E10E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DF79A6C72C007DDC00DAD07C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				DF4B7E772C04C97600C8971E /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 			);
 			productRefGroup = 7CFE6F6A2BE4D4DD009E6678 /* Products */;
 			projectDirPath = "";
@@ -359,6 +366,7 @@
 				655273B92BFF3FF8001D31CD /* ConfirmViewModel.swift in Sources */,
 				DF79A6C02C007AD900DAD07C /* BookingCompleteViewModel.swift in Sources */,
 				7CFE6F7B2BEE727D009E6678 /* SignInView.swift in Sources */,
+				DF4B7E762C04C7A600C8971E /* SendEmailViewModel.swift in Sources */,
 				655273B72BFF3FCE001D31CD /* ConfirmView.swift in Sources */,
 				6F2E0E5D2C00866300D1FD96 /* BookingView.swift in Sources */,
 				7CFE6FAD2BF125CD009E6678 /* ProductsViewModel.swift in Sources */,
@@ -510,7 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BookingApp/Preview Content\"";
-				DEVELOPMENT_TEAM = NKTZ3JHKVT;
+				DEVELOPMENT_TEAM = AFH5AJ5ZXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -540,7 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BookingApp/Preview Content\"";
-				DEVELOPMENT_TEAM = NKTZ3JHKVT;
+				DEVELOPMENT_TEAM = AFH5AJ5ZXL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -592,6 +600,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.26.0;
+			};
+		};
+		DF4B7E772C04C97600C8971E /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
 			};
 		};
 		DF79A6C72C007DDC00DAD07C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -647,6 +663,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C9B3A762BFDDD780067E10E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		DF4B7E782C04C97700C8971E /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF4B7E772C04C97600C8971E /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
 		};
 		DF79A6C82C007DDC00DAD07C /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
