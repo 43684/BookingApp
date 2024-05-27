@@ -18,9 +18,11 @@ struct CustomCalendarView: View {
     @State private var showingAlert = false
     @State var service = AppointmentService()
     @State private var appointments : [Appointment] = []
+    @State private var filteredAppointments : [Appointment] = []
     @State private var selectedItem: Appointment?
     @State private var timeBooked = false
     @StateObject var viewModel = ConfirmViewModel()
+    @State var i : Int = 0
     var body: some View {
         NavigationStack{
             VStack{
@@ -28,9 +30,17 @@ struct CustomCalendarView: View {
                     VStack {
                         HStack() {
                             ForEach(daysOfWeek.indices, id: \.self) { index in
-                                Text(daysOfWeek[index])
-                                    .fontWeight(.black)
-                                    .frame(maxWidth:.infinity)
+                                    Text(daysOfWeek[index])
+                                        .fontWeight(.black)
+                                        .frame(maxWidth:.infinity)
+                                
+                            }
+                        }.onAppear(){
+                            Task{
+                                appointments = try await fetchAppointments()
+                                print("got me some appointments!")
+                              //  print(a)
+                            //    myFunction(a: a)
                             }
                         }
                         LazyVGrid(columns: columns,spacing: 10) {
@@ -39,7 +49,7 @@ struct CustomCalendarView: View {
                                     Task{
                                         do{
                                             appointments = try await fetchAppointments()
-                                            appointments = filterAppointments(values: appointments, date: day)
+                                            filteredAppointments = filterAppointments(values: appointments, date: day)
                                             // print(appointments)
                                             showingAlert = true
                                         }catch{
@@ -61,8 +71,8 @@ struct CustomCalendarView: View {
                                         }
                                     }
                             }
-                            .disabled(Date.now.startOfDay > day.startOfDay)
-                                
+                            .disabled(Date.now.startOfDay > day.startOfDay || 
+                                      hasAvailableTimes(date: day) == false)
                             }
                         }
                     }
@@ -85,9 +95,9 @@ struct CustomCalendarView: View {
                     
                 }
              
-                    List(appointments, id: \.self){ item in
+                    List(filteredAppointments, id: \.self){ item in
                       
-                    Text(item.time)
+                        Text(String(item.day.dayOfMonth))
                             .onTapGesture{
                             saveAppointment(appointment: item)
                         }
@@ -105,6 +115,25 @@ struct CustomCalendarView: View {
             }
         }
     }
+    func hasAvailableTimes(date: Date)-> Bool{
+        var result = false
+        //create list of appointments on one day
+        let calender = Calendar.current
+        let day = calender.component(.day, from: date)
+        var dayly = appointments.filter{$0.day.dayOfMonth == day}
+        print(dayly)
+        
+        dayly.forEach(){ item in
+            if(item.booked == false)
+            {
+                print("!")
+            result = true
+            }
+        }
+        
+        return result
+    }
+  
     func saveAppointment(appointment: Appointment)
     {
         let defaults = UserDefaults.standard
