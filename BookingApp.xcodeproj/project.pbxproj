@@ -12,13 +12,13 @@
 		655273B92BFF3FF8001D31CD /* ConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655273B82BFF3FF8001D31CD /* ConfirmViewModel.swift */; };
 		65BB0DDE2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDD2BFCB2ED00527F81 /* DummyTestViewEmailVerification.swift */; };
 		65BB0DE02BFCBB8300527F81 /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB0DDF2BFCBB8300527F81 /* EmailVerificationViewModel.swift */; };
-
 		6F2E0E5B2C00865500D1FD96 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E5A2C00865500D1FD96 /* MailView.swift */; };
 		6F2E0E5D2C00866300D1FD96 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E5C2C00866300D1FD96 /* BookingView.swift */; };
 		6F2E0E5F2C00868700D1FD96 /* PopupEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E5E2C00868700D1FD96 /* PopupEmailView.swift */; };
 		6F2E0E612C0086A500D1FD96 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E602C0086A500D1FD96 /* Email.swift */; };
 		6F2E0E632C0086B400D1FD96 /* PopUpEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E622C0086B400D1FD96 /* PopUpEmailViewModel.swift */; };
 		6F2E0E652C0086E900D1FD96 /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0E642C0086E800D1FD96 /* BookingViewModel.swift */; };
+
 		7C9B3A782BFDDD780067E10E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A772BFDDD780067E10E /* FirebaseAuth */; };
 		7C9B3A7A2BFDDD780067E10E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A792BFDDD780067E10E /* FirebaseDatabase */; };
 		7C9B3A7C2BFDDD780067E10E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9B3A7B2BFDDD780067E10E /* FirebaseDatabaseSwift */; };
@@ -60,6 +60,9 @@
 		DF79A6C92C007DDC00DAD07C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DF79A6C82C007DDC00DAD07C /* Lottie */; };
 		F15912942BFBFE96006BF780 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F15912932BFBFE96006BF780 /* SDWebImageSwiftUI */; };
 		F15912982BFC1274006BF780 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15912972BFC1274006BF780 /* UIView.swift */; };
+		F2A4678C2C00BE740029058E /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4678B2C00BE740029058E /* ConfirmView.swift */; };
+		F2A4678E2C00BF710029058E /* ConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4678D2C00BF710029058E /* ConfirmViewModel.swift */; };
+		F2A467902C00C7080029058E /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A4678F2C00C7080029058E /* CalenderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,7 @@
 		6F2E0E602C0086A500D1FD96 /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		6F2E0E622C0086B400D1FD96 /* PopUpEmailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpEmailViewModel.swift; sourceTree = "<group>"; };
 		6F2E0E642C0086E800D1FD96 /* BookingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
+
 		7C9B3A852BFDE2670067E10E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		7CFE6F692BE4D4DD009E6678 /* BookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFE6F6C2BE4D4DD009E6678 /* BookingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingAppApp.swift; sourceTree = "<group>"; };
@@ -107,6 +111,9 @@
 		DF79A6C32C007AF900DAD07C /* ColorExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
 		DF79A6C52C007D8F00DAD07C /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		F15912972BFC1274006BF780 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F2A4678B2C00BE740029058E /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
+		F2A4678D2C00BF710029058E /* ConfirmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewModel.swift; sourceTree = "<group>"; };
+		F2A4678F2C00C7080029058E /* CalenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +180,8 @@
 		7CFE6F862BEE7A21009E6678 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+
+				F2A4678D2C00BF710029058E /* ConfirmViewModel.swift */,
 				6F2E0E642C0086E800D1FD96 /* BookingViewModel.swift */,
 				6F2E0E622C0086B400D1FD96 /* PopUpEmailViewModel.swift */,
 				7CFE6F802BEE740A009E6678 /* ContentViewModel.swift */,
@@ -190,13 +199,13 @@
 		7CFE6F872BEE7A35009E6678 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				34D2E8582BFF49B200937E75 /* ConfirmView.swift */,
 				7CFE6FB32BF269D9009E6678 /* CustomViews */,
 				7CFE6F6E2BE4D4DD009E6678 /* ContentView.swift */,
-
+				F2A4678F2C00C7080029058E /* CalenderView.swift */,
+				F2A4678B2C00BE740029058E /* ConfirmView.swift */,
 				6F2E0E5C2C00866300D1FD96 /* BookingView.swift */,
-
 				DF79A6C52C007D8F00DAD07C /* AnimationView.swift */,
-
 				7CFE6F7A2BEE727D009E6678 /* SignInView.swift */,
 				7CFE6F822BEE75A5009E6678 /* ServicesView.swift */,
 				6F2E0E5E2C00868700D1FD96 /* PopupEmailView.swift */,
@@ -343,6 +352,7 @@
 			files = (
 				7CFE6F7D2BEE72C5009E6678 /* SignInViewModel.swift in Sources */,
 				7CFE6FA32BF112D9009E6678 /* Service.swift in Sources */,
+				F2A4678C2C00BE740029058E /* ConfirmView.swift in Sources */,
 				7CFE6FA52BF112E1009E6678 /* Product.swift in Sources */,
 				7CFE6F8A2BEE7AC6009E6678 /* StringExtention.swift in Sources */,
 				65BB0DE02BFCBB8300527F81 /* EmailVerificationViewModel.swift in Sources */,
@@ -354,9 +364,11 @@
 				655273B52BFF3F99001D31CD /* ColorExtention.swift in Sources */,
 				7CFE6F9E2BF10438009E6678 /* ProductService.swift in Sources */,
 				7CFE6FAB2BF125B3009E6678 /* ProductsView.swift in Sources */,
+				F2A4678E2C00BF710029058E /* ConfirmViewModel.swift in Sources */,
 				7CFE6FB72BF37446009E6678 /* AdminView.swift in Sources */,
 				7CFE6FA02BF10469009E6678 /* AppointmentService.swift in Sources */,
 				7CFE6F7F2BEE7378009E6678 /* AuthService.swift in Sources */,
+				F2A467902C00C7080029058E /* CalenderView.swift in Sources */,
 				7CFE6FB52BF26A11009E6678 /* CustomCalendarView.swift in Sources */,
 				655273B92BFF3FF8001D31CD /* ConfirmViewModel.swift in Sources */,
 				DF79A6C02C007AD900DAD07C /* BookingCompleteViewModel.swift in Sources */,
