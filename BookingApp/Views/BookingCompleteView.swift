@@ -11,23 +11,8 @@ struct BookingCompleteView: View {
     var body: some View {
         
         VStack {
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
-                
+            Spacer(minLength: 100)
+            
             //First box
             ZStack {
                     RoundedRectangle(cornerRadius: 15.0)
