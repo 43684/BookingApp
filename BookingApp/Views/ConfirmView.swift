@@ -123,7 +123,16 @@ struct ConfirmView: View {
                     }
                 }.frame(width: 60, height: 60)
                     .offset(x: -10)
-                    
+                    .sheet(isPresented: $showPopup){
+                        EmailPopupView(showPopup: $showPopup)
+                            .environmentObject(emailViewModel)
+                    }
+                    .alert(isPresented: $emailViewModel.showAlert){
+                        Alert(title: Text("Message"), message: Text(emailViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+                    }
+                    .sheet(isPresented: $emailViewModel.isShowingMailView){
+                        MailView(viewModel: emailViewModel)
+                    }
             }.padding()
             
         }.navigationTitle("Confirm booking")
