@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsView: View {
     @StateObject var viewModel = ProductsViewModel()
+    @State var nextView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -56,6 +57,10 @@ struct ProductsView: View {
             .navigationTitle("Products")
             .onAppear {
                // viewModel.fetchProducts()
+            }
+            
+            VStack {
+                Text(UserDefaults.standard.string(forKey: "selectedServiceName") ?? "HEJ")
             }
         }
     }
