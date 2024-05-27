@@ -81,16 +81,13 @@ struct ProductsView: View {
                         selectedProduct = product
                         
                     }
-                    .background(selectedProduct == product ? Color.yellow : Color.clear)
+                    .background(selectedProduct == product ? Color(hex: "#9B7A46" ) : Color.clear)
                     .contentShape(Rectangle())
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .padding(.vertical, 8)
-                    .padding(.horizontal)
+
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.black)
-                    Divider()
-                        .frame(minHeight: 0.3)
-                        .overlay(Color(hex: "#D3BD9C"))
+
                     
                     
                     
