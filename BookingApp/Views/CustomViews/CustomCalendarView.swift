@@ -85,15 +85,15 @@ struct CustomCalendarView: View {
                     
                 }
              
-                
-                List($appointments, id: \.self){ $item in
-                    
-                    Text(item.time).onTapGesture{
-                        saveAppointment(appointment: item)
-                    }
-                      /*  NavigationLink(destination: ConfirmView(), isActive: $timeBooked){
-                            EmptyView()
-                        }.hidden()*/
+                    List(appointments, id: \.self){ item in
+                      
+                    Text(item.time)
+                            .onTapGesture{
+                            saveAppointment(appointment: item)
+                        }
+                        /*  NavigationLink(destination: ConfirmView(), isActive: $timeBooked){
+                         EmptyView()
+                         }.hidden()*/
                     }
                 Button("Next"){
                    // saveAppointment(appointment: item)
@@ -126,7 +126,8 @@ struct CustomCalendarView: View {
         let calender = Calendar.current
         let month = calender.component(.month, from: date)
         let day = calender.component(.day, from: date)
-        return values.filter{$0.day.dayOfMonth == day && $0.day.monthValue == month}
+        return values.filter{$0.day.dayOfMonth == day && $0.day.monthValue == month
+            && $0.booked == false}
     }
 }
 #Preview {
