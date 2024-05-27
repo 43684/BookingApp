@@ -45,6 +45,7 @@ struct ServicesView: View {
                             .font(.caption)
                             
                         }
+                     
                         //.padding(15)
                         //Text("Estimated Time: 3h")
                         //.font(.caption)
@@ -87,6 +88,7 @@ struct ServicesView: View {
                 Spacer()
                 ZStack {
                     Button {
+                        showPopup.toggle()
                     } label: {
                         Image(systemName: "envelope")
                             .foregroundColor(.black)
@@ -99,41 +101,6 @@ struct ServicesView: View {
                     .offset(x: -10)
             }.padding()
             
-        }.navigationTitle("Choose Service")
-            .navigationDestination(isPresented: $nextView, destination: {
-                ProductsView()
-            })
-            .background(.black)
-            .scrollContentBackground(.hidden)
-    }
-}
-}
-
-#Preview {
-    NavigationView {
-        ServicesView()
-    }
-}
-
-
-        }
-        .toolbar{
-            
-            ToolbarItem(placement: .bottomBar){
-                
-                HStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        showPopup.toggle()
-                    }) {
-                        Image(systemName: "envelope.circle")
-                            .font(.largeTitle)
-                            .foregroundStyle(Color.yellow)
-                }
-                }
-            }
-                
         }
         .sheet(isPresented: $showPopup){
             EmailPopupView(showPopup: $showPopup)
@@ -145,9 +112,40 @@ struct ServicesView: View {
         .sheet(isPresented: $emailViewModel.isShowingMailView){
             MailView(viewModel: emailViewModel)
         }
-        
-        
-        
+        .navigationTitle("Choose Service")
+            .navigationDestination(isPresented: $nextView, destination: {
+                ProductsView()
+            })
+            .background(.black)
+            .scrollContentBackground(.hidden)
+            
+            
     }
 }
+}
+
+#Preview {
+    NavigationView {
+        ServicesView()
+    }
+}
+
+
+        
+        
+//        .sheet(isPresented: $showPopup){
+//            EmailPopupView(showPopup: $showPopup)
+//                .environmentObject(emailViewModel)
+//        }
+//        .alert(isPresented: $emailViewModel.showAlert){
+//            Alert(title: Text("Message"), message: Text(emailViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+//        }
+//        .sheet(isPresented: $emailViewModel.isShowingMailView){
+//            MailView(viewModel: emailViewModel)
+//        }
+//        
+//        
+//        
+//    }
+//}
 
