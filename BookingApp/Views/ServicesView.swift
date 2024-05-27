@@ -18,6 +18,9 @@ struct ServicesView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color(hex:"#D3BD9C"))]
     }
     
+    @StateObject var emailViewModel = PopUpEmailViewModel()
+    @State var showPopup = false
+
     
     var body: some View {
         NavigationStack {
@@ -66,6 +69,7 @@ struct ServicesView: View {
                 
                 .listRowBackground(Color.black)
             }
+
             
             Button("NEXT"){
                 viewModel.saveSelectedService(selectedService)
@@ -108,6 +112,42 @@ struct ServicesView: View {
 #Preview {
     NavigationView {
         ServicesView()
+    }
+}
+
+
+        }
+        .toolbar{
+            
+            ToolbarItem(placement: .bottomBar){
+                
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        showPopup.toggle()
+                    }) {
+                        Image(systemName: "envelope.circle")
+                            .font(.largeTitle)
+                            .foregroundStyle(Color.yellow)
+                }
+                }
+            }
+                
+        }
+        .sheet(isPresented: $showPopup){
+            EmailPopupView(showPopup: $showPopup)
+                .environmentObject(emailViewModel)
+        }
+        .alert(isPresented: $emailViewModel.showAlert){
+            Alert(title: Text("Message"), message: Text(emailViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+        }
+        .sheet(isPresented: $emailViewModel.isShowingMailView){
+            MailView(viewModel: emailViewModel)
+        }
+        
+        
+        
     }
 }
 
