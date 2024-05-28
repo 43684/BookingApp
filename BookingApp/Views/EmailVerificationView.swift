@@ -31,6 +31,12 @@ struct EmailVerificationView: View {
                 
                 Spacer()
                 
+                Text(statusText ?? "Email is not verified...")
+                    .foregroundStyle(viewModel.isMailVerified ? .green : .red)
+                    .font(.title2)
+                
+                Spacer()
+                
                 Button(action: {
                     if viewModel.isMailVerified {
                         viewModel.deleteUser()
@@ -47,10 +53,6 @@ struct EmailVerificationView: View {
                         .bold()
                 }
                 .padding()
-                
-                Text(statusText ?? "Waiting for verification...")
-                    .foregroundStyle(viewModel.isMailVerified ? .green : .red)
-                    .font(.title2)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
