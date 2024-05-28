@@ -43,8 +43,8 @@ class ServicesViewModel: ObservableObject {
     
     func saveSelectedService(_ selectedService: Service?){
         if let selectedService = selectedService {
-            UserDefaults.standard.set(selectedService.name, forKey: "selectedServiceName")
-            UserDefaults.standard.set(selectedService.price, forKey: "selectedServicePrice")
+            UserDefaults.standard.set(selectedService.name, forKey: "selectedservicename")
+            UserDefaults.standard.set(selectedService.price, forKey: "selectedserviceprice")
             print(UserDefaults.standard.dictionaryRepresentation())
         }
     }

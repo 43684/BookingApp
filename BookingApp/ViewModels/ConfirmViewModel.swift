@@ -31,7 +31,7 @@ class ConfirmViewModel: ObservableObject {
             self.productPrice = defaults.integer(forKey: "selectedProductPrice")
             self.totalCost = self.servicePrice + self.productPrice
             
-            self.appointmentDate = "\(defaults.integer(forKey: "appointmentDay")) \(defaults.string(forKey: "appointmentMonth") ?? "") \(defaults.integer(forKey: "appointmentYear"))"
+            self.appointmentDate = "\(defaults.integer(forKey: "appointmentday")) \(defaults.string(forKey: "appointmentmonth") ?? "") \(defaults.integer(forKey: "appointmentYear"))"
             self.appointmentTime = defaults.string(forKey: "appointmentTime") ?? ""
         }
     }

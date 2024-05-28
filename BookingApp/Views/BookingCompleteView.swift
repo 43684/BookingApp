@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookingCompleteView: View {
     @ObservedObject var smtptest = SendEmailViewModel()
-
+let adminEmail = "joakim8904@gmail.com"
     var body: some View {
         
         ZStack {
@@ -94,38 +94,77 @@ struct BookingCompleteView: View {
         }
         
     }
+    //function to send confirmation to customer/user
     func sendEmailReceipt() {
         let firstName = UserDefaults.standard.string(forKey: "firstname") ?? ""
         let lastName = UserDefaults.standard.string(forKey: "lastname") ?? ""
         let recipientEmail = UserDefaults.standard.string(forKey: "email") ?? ""
         let phone = UserDefaults.standard.string(forKey: "phone") ?? ""
         let message = UserDefaults.standard.string(forKey: "message") ?? ""
+        let appointmentDay = UserDefaults.standard.integer(forKey: "appointmentDay")
+            let appointmentMonth = UserDefaults.standard.string(forKey: "appointmentMonth") ?? ""
+            let appointmentYear = UserDefaults.standard.integer(forKey: "appointmentYear")
+        let service = UserDefaults.standard.string(forKey: "selectedservicename") ?? ""
+        let product = UserDefaults.standard.string(forKey: "selectedproductname") ?? ""
+
+        let appointment = "\(appointmentDay) \(appointmentMonth) \(appointmentYear)"
+
         
         let subject = "Booking Confirmation"
         let body = """
             Dear \(firstName) \(lastName),
             
-            Your booking has been successfully received.
+            Your booking has been succesfully completed.
             
             Details:
             Name: \(firstName) \(lastName)
             Phone: \(phone)
             Message: \(message)
+            Your booking information:
+            Appointment: \(appointment)
+            Service: \(service)
+            Products: \(product)
+            
+            Cancellation Policy:
+            Appointments can be cancelled up to 24 hours before the scheduled start time without any charges.
+            cancellations made within 24 hours of the scheduled appointment time will incur a cancellation fee
+            equivalent to 20% of the service cost.
+            To cancel an appointment contact us at \(adminEmail)
+            
+            Refunds:
+            If you cancel an appointment more than 24 hours in advance you will not be excpected to pay anything
+                            
+            Rescheduling:
+            Rescheduling Window: You can reschedule your appointment up to 24 hours before the original
+            appointment time without any charges. Contact us at \(adminEmail)
+            Changes to Cancellation Policy:
+            BjaerkStudio reserves the right to modify or update this cancellation policy at any time.
+            Any changes will be communicated through the app and via email to our users.
+            Thank you for your understanding and cooperation.
+            If you have any questions or need further assistance, please contact us at \(adminEmail)
             
             Thank you for booking with us!
-            
             Best regards,
             The Studio Team
             """
         
         smtptest.sendMailReceipt(to: recipientEmail, subject: subject, body: body)
     }
+    
+    //Function to send confirmation to Admin
     func sendBookingConfirmationEmail() {
         let firstName = UserDefaults.standard.string(forKey: "firstname") ?? ""
         let lastName = UserDefaults.standard.string(forKey: "lastname") ?? ""
         let recipientEmail = UserDefaults.standard.string(forKey: "email") ?? ""
         let phone = UserDefaults.standard.string(forKey: "phone") ?? ""
         let message = UserDefaults.standard.string(forKey: "message") ?? ""
+        let appointmentDay = UserDefaults.standard.integer(forKey: "appointmentDay")
+            let appointmentMonth = UserDefaults.standard.string(forKey: "appointmentMonth") ?? ""
+            let appointmentYear = UserDefaults.standard.integer(forKey: "appointmentYear")
+        let service = UserDefaults.standard.string(forKey: "selectedservicename") ?? ""
+        let product = UserDefaults.standard.string(forKey: "selectedproductname") ?? ""
+
+        let appointment = "\(appointmentDay) \(appointmentMonth) \(appointmentYear)"
         
         let subject = "Booking Confirmation"
         let body = """
@@ -135,16 +174,14 @@ struct BookingCompleteView: View {
             Customer information:
             Name: \(firstName) \(lastName)
             Phone: \(phone)
+            Email: \(recipientEmail)
             Message: \(message)
             Booking Information:
-            Appointment:
-            Service:
-            Products:
+            Appointment: \(appointment)
+            Service: \(service)
+            Products: \(product)
             
-            Thank you for booking with us!
             
-            Best regards,
-            The Studio Team
             """
         
         smtptest.sendMailConfirmation(to: recipientEmail, subject: subject, body: body)
