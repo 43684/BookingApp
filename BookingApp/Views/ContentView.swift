@@ -10,15 +10,26 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var viewModel = ContentViewModel()
+    @State var isAnimaning: Bool = true
     
     var body: some View {
         NavigationStack{
             ZStack(alignment:.top){
                 Color.black.edgesIgnoringSafeArea(.all)
+                
+                Text("Welcome to\nBjaerk  Studio!")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(
+                LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                    .frame(width: 300, height:100, alignment: .center)
+                    .font(.title)
+                    .padding(150)
                 Image("Icon")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(50)
+                    //.aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                    .padding(300)
+                    .onTapGesture { ServicesView() }
                     
                 /*if viewModel.isAdminLoggedIn {
                     Button {
@@ -26,11 +37,9 @@ struct ContentView: View {
                     } label: {
                         Text("Sign out")
                     }
-
                 }*/
-                ServicesView()
             }
-            .onLongPressGesture(minimumDuration: 10) {
+            .onLongPressGesture(minimumDuration: 2) {
                 if !viewModel.isAdminLoggedIn{
                     viewModel.showLogginPage.toggle()
                 }
@@ -38,17 +47,17 @@ struct ContentView: View {
             .toolbar{
                 if viewModel.isAdminLoggedIn {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        /*Button {
+                        NavigationLink(destination: AdminView()) {
+                            Image(systemName: "doc.badge.gearshape.fill")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
                             AuthService.shared.signOut()
                         } label: {
                             Text("Sign out")
-                                .foregroundColor(.yellow)
-                        }*/
-                        NavigationLink(destination: AdminView()) {
-                            Image(systemName: "doc.badge.gearshape.fill")
-                                
+                                .foregroundColor(.blue)
                         }
-                        
                     }
                 }
             }
@@ -59,6 +68,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 #Preview {
     ContentView()
