@@ -54,7 +54,7 @@ struct ContentView: View {
                      }
                      }*/
                 }
-                .onLongPressGesture(minimumDuration: 2) {
+                .onLongPressGesture(minimumDuration: 5) {
                     if !viewModel.isAdminLoggedIn{
                         viewModel.showLogginPage.toggle()
                     }
