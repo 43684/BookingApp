@@ -23,11 +23,11 @@ struct EmailVerificationView: View {
                 
                 Spacer()
                 
-                Text("Dear Customer,\nYour appointment has been successfully confirmed. Please tap the button below to receive the verification email in your inbox.")
+                Text("Dear Customer,\nYour appointment has been successfully confirmed. Please check your inbox and verify your email-adress to proceed.")
                     .foregroundColor(Color(hex: "#D3BD9C"))
                     .font(.title2)
                     .bold()
-                    .padding(20)
+                    .padding(40)
                 
                 Spacer()
                 
