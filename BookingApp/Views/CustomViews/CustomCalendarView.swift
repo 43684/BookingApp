@@ -23,18 +23,26 @@ struct CustomCalendarView: View {
     @State private var timeBooked = false
     @StateObject var viewModel = ConfirmViewModel()
     @State var i : Int = 0
+    @StateObject var emailViewModel = PopUpEmailViewModel()
+    @State var showPopup = false
+    
     var body: some View {
         NavigationStack{
             VStack{
+                Spacer(minLength: 30)
                 VStack(alignment:.center,spacing:-0) {
+                    
                     VStack {
+                        
                         HStack() {
+                
                             ForEach(daysOfWeek.indices, id: \.self) { index in
                                     Text(daysOfWeek[index])
                                         .fontWeight(.black)
                                         .frame(maxWidth:.infinity)
                                 
                             }
+                
                         }.onAppear(){
                             Task{
                                 appointments = try await fetchAppointments()
@@ -43,6 +51,7 @@ struct CustomCalendarView: View {
                             //    myFunction(a: a)
                             }
                         }
+                        .foregroundStyle(Color.white)
                         LazyVGrid(columns: columns,spacing: 10) {
                             ForEach(days, id: \.self) { day in
                                 Button {
@@ -59,23 +68,38 @@ struct CustomCalendarView: View {
                                     print("Date selected \(day)")
                                     
                                 }
+                                
+                                
+                                
                             label: {
                                 Text(day.formatted(.dateTime.day()))
                                     .fontWeight(.black)
                                     .frame(maxWidth:.infinity ,minHeight: 40)
+                                    
+                                
+                                
                                 // .opacity(day < date.startOfMonth ? 0 : 1)
                                     .background {
                                         if Date.now.startOfDay == day.startOfDay{
                                             Circle()
-                                                .stroke(Color.black, lineWidth: 2)
+                                                .stroke(Color(hex: "#D3BD9C"),  lineWidth: 2)
                                         }
                                     }
+                                    .accentColor(Color(hex:"#D3BD9C"))
+                                
                             }
-                            .disabled(Date.now.startOfDay > day.startOfDay || 
+                        
+                            .disabled(Date.now.startOfDay > day.startOfDay ||
                                       hasAvailableTimes(date: day) == false)
+                        
+                        
+                                
+                            
                             }
                         }
                     }
+                    
+                    
                     .padding(.horizontal)
                     .frame(width: size)
                     .padding()
@@ -90,29 +114,86 @@ struct CustomCalendarView: View {
                 .padding(.vertical, 10)
                 .background{
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.yellow.opacity(1))
+                        .fill(Color.black.opacity(1))
                         .stroke(Color.white.opacity(1),lineWidth: 2)
                     
                 }
              
+                
                     List(filteredAppointments, id: \.self){ item in
-                      
-                        Text(String(item.day.dayOfMonth))
-                            .onTapGesture{
-                            saveAppointment(appointment: item)
-                        }
-                        /*  NavigationLink(destination: ConfirmView(), isActive: $timeBooked){
-                         EmptyView()
-                         }.hidden()*/
+                          
+                        
+                            Text(String(item.time))
+                                
+                                
+                                    .onTapGesture{
+                                    saveAppointment(appointment: item)
+                                    selectedItem = item
+                                }
+                                    .frame(maxWidth: .infinity, maxHeight: 70, alignment: .center)                                    .background(selectedItem == item ? Color(hex: "#9B7A46" ) : Color.clear)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .listRowInsets(EdgeInsets())
+                                .listRowBackground(Color.black)
+                        
+                                
+                        
+                            /*  NavigationLink(destination: ConfirmView(), isActive: $timeBooked){
+                             EmptyView()
+                             }.hidden()*/
                     }
-                Button("Next"){
-                   // saveAppointment(appointment: item)
-                    timeBooked = true
-                }
-                .navigationDestination(isPresented: $timeBooked, destination: {
+                
+                   
+                    
+                    
+                Button("NEXT"){
+                              timeBooked = true
+
+                            }.padding()
+                                .font(.title3)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                                .foregroundColor(Color(hex: "#131D54"))
+                                .cornerRadius(15)
+                                .bold()
+
+                            HStack {
+                                Spacer()
+                                ZStack {
+                                    Button {
+                                        showPopup.toggle()
+                                    } label: {
+                                        Image(systemName: "envelope")
+                                            .foregroundColor(.black)
+                                            .padding(12)
+                                            .background(
+                                                LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                                            .clipShape(Circle())
+                                    }
+                                }.frame(width: 60, height: 60)
+                                    .offset(x: -10)
+                            }.padding()
+//                .navigationDestination(isPresented: $timeBooked, destination: {
+//                            ConfirmView()
+//                        })
+                
+            }
+            .sheet(isPresented: $showPopup){
+                        EmailPopupView(showPopup: $showPopup)
+                            .environmentObject(emailViewModel)
+                    }
+                    .alert(isPresented: $emailViewModel.showAlert){
+                        Alert(title: Text("Message"), message: Text(emailViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+                    }
+                    .sheet(isPresented: $emailViewModel.isShowingMailView){
+                        MailView(viewModel: emailViewModel)
+                    }
+                    .navigationTitle("Vacant time")
+                        .navigationDestination(isPresented: $timeBooked, destination: {
                             ConfirmView()
                         })
-            }
+                        .background(.black)
+                        .scrollContentBackground(.hidden)
+            
         }
     }
     func hasAvailableTimes(date: Date)-> Bool{
