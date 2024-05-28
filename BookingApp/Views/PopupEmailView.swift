@@ -15,7 +15,7 @@ struct EmailPopupView: View {
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.6)
+            Color.black
                 .ignoresSafeArea(.all)
             VStack{
                 VStack(spacing: 20) {
@@ -64,15 +64,18 @@ struct EmailPopupView: View {
                             .font(.headline)
                             .foregroundColor(.black)
                     }
-                    .padding()
-                    .background(Color.yellow)
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
+                    
                 }
-                .padding()
-                .shadow(radius: 5)
+                    .padding()
+                    .font(.title3)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                    .foregroundColor(Color(hex: "#131D54"))
+                    .cornerRadius(15)
+                    .bold()
                 
             }
+            .padding()
             .frame(width: 300)
             .background(Color.white.opacity(0.9))
             .cornerRadius(10)

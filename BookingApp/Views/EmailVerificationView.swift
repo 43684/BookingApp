@@ -23,11 +23,17 @@ struct EmailVerificationView: View {
                 
                 Spacer()
                 
-                Text("Dear Customer,\nYour appointment has been successfully confirmed. Please tap the button below to receive the verification email in your inbox.")
+                Text("Dear Customer,\nYour appointment has been successfully confirmed. Please check your inbox and verify your email-address to proceed.")
                     .foregroundColor(Color(hex: "#D3BD9C"))
                     .font(.title2)
                     .bold()
-                    .padding(20)
+                    .padding(40)
+                
+                Spacer()
+                
+                Text(statusText ?? "Email is not verified...")
+                    .foregroundStyle(viewModel.isMailVerified ? .green : .red)
+                    .font(.title2)
                 
                 Spacer()
                 
@@ -47,10 +53,6 @@ struct EmailVerificationView: View {
                         .bold()
                 }
                 .padding()
-                
-                Text(statusText ?? "Waiting for verification...")
-                    .foregroundStyle(viewModel.isMailVerified ? .green : .red)
-                    .font(.title2)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
