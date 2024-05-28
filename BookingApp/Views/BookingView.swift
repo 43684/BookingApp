@@ -87,11 +87,13 @@ struct BookingView: View {
                                      }
                                  }) {
                                      Text("Send Order")
-                                         .fontWeight(.bold)
-                                         .foregroundColor(Color.black)
                                          .padding()
-                                         .background(Color.yellow)
-                                         .cornerRadius(10)
+                                             .font(.title3)
+                                             .background(
+                                                 LinearGradient(gradient: Gradient(colors: [Color(hex: "#D3BD9C"), Color(hex: "#6D6355")]), startPoint: .leading, endPoint: .trailing))
+                                             .foregroundColor(Color(hex: "#131D54"))
+                                             .cornerRadius(15)
+                                             .bold()
                                  }
                                  .navigationDestination(isPresented: $nextView, destination: {
                                      EmailVerificationView()
