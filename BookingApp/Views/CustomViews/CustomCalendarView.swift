@@ -124,6 +124,7 @@ struct CustomCalendarView: View {
                           
                         
                             Text(String(item.time))
+                            .foregroundStyle(Color.white)
                                 
                                 
                                     .onTapGesture{
