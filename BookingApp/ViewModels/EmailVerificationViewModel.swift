@@ -60,9 +60,10 @@ class EmailVerificationViewModel: ObservableObject {
     }
     
     func startVerificationTimer() {
+        stopVerificationTimer()
         timerForVerification = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
             self.verificationCheck()
-            print("Timer launched")
+            print("Timer update")
         }
     }
     
