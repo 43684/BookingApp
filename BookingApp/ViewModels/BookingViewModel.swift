@@ -27,4 +27,14 @@ class BookingViewModel: ObservableObject{
              self.isSubmitting = false
          }
      }
+    public func setUserDefaults(){
+        UserDefaults.standard.set(firstName, forKey: "firstname")
+        UserDefaults.standard.set(lastName, forKey: "lastname")
+        UserDefaults.standard.set(phone, forKey: "phone")
+        UserDefaults.standard.set(message, forKey: "message")
+        UserDefaults.standard.set(email, forKey: "email")
+
+
+        
+    }
  }

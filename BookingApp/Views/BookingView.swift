@@ -71,11 +71,13 @@ struct BookingView: View {
                                      .progressViewStyle(CircularProgressViewStyle())
                              } else {
                                  Button(action: {
+                                    
                                      viewModel.submit()
                                      emailVerificaton.createTemporaryUser(email: viewModel.email, password: viewModel.password)
                                      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                          emailVerificaton.logInUser(email: viewModel.email, password: viewModel.password) { loggedIn in
                                              if loggedIn {
+                                                 viewModel.setUserDefaults()
                                                 nextView = true
                                                  
                                              } else {
