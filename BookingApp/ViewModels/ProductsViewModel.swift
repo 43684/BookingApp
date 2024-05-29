@@ -29,8 +29,8 @@ class ProductsViewModel: ObservableObject {
     
     func saveSelectedProduct(_ selectedProduct: Product?){
         if let selectedProduct = selectedProduct {
-            UserDefaults.standard.set(selectedProduct.name, forKey: "selectedProductName")
-            UserDefaults.standard.set(selectedProduct.price, forKey: "selectedProductPrice")
+            UserDefaults.standard.set(selectedProduct.name, forKey: "selectedproductname")
+            UserDefaults.standard.set(selectedProduct.price, forKey: "selectedproductprice")
             print(UserDefaults.standard.dictionaryRepresentation())
         }
         
